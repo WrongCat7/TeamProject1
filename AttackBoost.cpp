@@ -19,5 +19,5 @@ void AttackBoost::Use(Character* character)
 	string CharacterName = character->name;
 	character->GetAttack() += attackincreasr;
 	character->SetAttack();
-	cout << name << "À» »ç¿ëÇß½À´Ï´Ù." <<  "°ø°Ý·Â:" << character->GetAttack() << endl;
+	cout << name << "ì„ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤." <<  "ê³µê²©ë ¥:" << character->GetAttack() << endl;
 }
