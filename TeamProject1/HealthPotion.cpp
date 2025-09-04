@@ -1,4 +1,4 @@
-#include "HealthPotion.h"
+ï»¿#include "HealthPotion.h"
 #include <iostream>
 #include "Character.h"
 using namespace std;
@@ -19,7 +19,7 @@ void HealthPotion::Use(Character* character)
 {
 	character->GetHP() += healthRestore;
 	character->SetHP();
-	cout  << name << "À» »ç¿ëÇß½À´Ï´Ù."  << "Ã¼·Â:" << character->GetHP() << endl;
+	cout  << name << "ì„ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤."  << "ì²´ë ¥:" << character->GetHP() << endl;
 }
 
 
