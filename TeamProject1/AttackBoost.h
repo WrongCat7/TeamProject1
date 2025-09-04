@@ -1,7 +1,7 @@
 #pragma once
 #include "Item.h"
-#include "Character.h"
 
+class Character;
 class AttackBoost :
     public Item
 {
