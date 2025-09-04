@@ -15,7 +15,7 @@ private:
 	int attack;
 	int experience;
 	int gold;
-	// vector <item*> inventory; //인벤토리, 아이템 클래스와 연결 필요
+	vector <item*> inventory; //인벤토리, 아이템 클래스와 연결 필요
 
 public:
 	Character();
