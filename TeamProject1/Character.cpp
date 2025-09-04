@@ -35,16 +35,20 @@ void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 	if (experience == 100)
 	{
 		this->level += 1;
-		this->HP += maxHP;
-		this->maxHP += 50;
-		this->attack += 10;
+		this->HP += maxHP + (level * 20);
+		this->maxHP += (level * 20);
+		this->attack += (level *5);
 		this->experience = 0;
 	}
 }
 
 void Character::UseItem(int index)
 {
+	item->Use(); // 아이템 사용
+	cout << item->Getname() << " 아이템을 사용했습니다. \n";
 
+	delete item;
+	inventory[index] = nullptr;
 }
 
 
@@ -132,3 +136,27 @@ void Character::Setgold(int gold)
 {
 	this->gold = gold;
 }
+
+
+/*
+	//캐릭터 글자 수 제한(참고 코드)
+
+int main()
+{
+	const size_t maxnamelength = 10;
+	string charactername;
+
+	cout << "캐릭터 이름을 입력하세요 (최대 " << maxnamelength << "자): ";
+	getline(cin, charactername);
+
+	if (charactername.length() > maxnamelength)
+	{
+		cout << "이름이 너무 깁니다." << maxnamelength << "자 이하로 입력해주세요. \n";
+	}
+	else
+		cout << "입력된 이름 : " << charactername << '\n';
+
+	return 0;
+}
+
+*/
