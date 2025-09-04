@@ -125,8 +125,11 @@
   <ItemGroup>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <ClCompile Include="ConsoleApplication1.cpp" />
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Goblin.cpp" />
@@ -143,6 +146,9 @@
     <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Skeleton.h" />
     <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Slime.h" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
