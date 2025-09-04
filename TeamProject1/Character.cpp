@@ -35,16 +35,20 @@ void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 	if (experience == 100)
 	{
 		this->level += 1;
-		this->HP += maxHP;
-		this->maxHP += 50;
-		this->attack += 10;
+		this->HP += maxHP + (level * 20);
+		this->maxHP += (level * 20);
+		this->attack += (level *5);
 		this->experience = 0;
 	}
 }
 
 void Character::UseItem(int index)
 {
+	item->Use(); // 아이템 사용
+	cout << item->Getname() << " 아이템을 사용했습니다. \n";
 
+	delete item;
+	inventory[index] = nullptr;
 }
 
 
