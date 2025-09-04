@@ -44,10 +44,10 @@ void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 
 void Character::UseItem(int index)
 {
-	item->Use(); // 아이템 사용
-	cout << item->Getname() << " 아이템을 사용했습니다. \n";
+	inventory[index]->Use(); // 아이템 사용
+	cout << inventory[index]->Getname() << " 아이템을 사용했습니다. \n";
 
-	delete item;
+	delete inventory[index];
 	inventory[index] = nullptr;
 }
 
