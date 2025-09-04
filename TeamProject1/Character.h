@@ -1,0 +1,49 @@
+#pragma once
+#include <string>
+#include <vector>
+using namespace std;
+
+class Character
+{
+private:
+
+	static Character* instance;
+	string name;
+	int level;
+	int HP;
+	int maxHP;
+	int attack;
+	int experience;
+	int gold;
+	vector <item*> inventory; //인벤토리, 아이템 클래스와 연결 필요
+
+public:
+	Character();
+	Character(string name);
+
+	static Character* Getinstance(string = "");
+	void Displaystatus();
+	void Levelup();
+	void UseItem(int index);
+
+
+	//getter
+	string Getname();
+	int Getlevel();
+	int GetHP();
+	int GetmaxHP();
+	int Getattack();
+	int Getexperience();
+	int Getgold();
+
+	//setter
+	void Setname(string name);
+	void Setlevel(int level);
+	void SetHP(int HP);
+	void SetmaxHP(int maxHP);
+	void Setattack(int attack);
+	void Setexprience(int experience);
+	void Setgold(int gold);
+};
+
+
