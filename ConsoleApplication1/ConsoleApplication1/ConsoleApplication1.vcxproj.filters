@@ -16,14 +16,11 @@
   </ItemGroup>
   <ItemGroup>
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     <ClCompile Include="ConsoleApplication1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 =======
-=======
->>>>>>> Stashed changes
     <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Goblin.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -60,8 +57,5 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 </Project>
