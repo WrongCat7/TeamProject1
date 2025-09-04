@@ -123,7 +123,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ClCompile Include="ConsoleApplication1.cpp" />
+=======
+    <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Goblin.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Main.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\Monster\Monster\MonsterBase.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Orc.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Skeleton.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Slime.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Goblin.h" />
+    <ClInclude Include="..\..\..\..\..\..\Monster\Monster\MonsterBase.h" />
+    <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Orc.h" />
+    <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Skeleton.h" />
+    <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Slime.h" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
