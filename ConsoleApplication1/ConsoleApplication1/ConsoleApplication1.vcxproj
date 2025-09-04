@@ -124,8 +124,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <ClCompile Include="ConsoleApplication1.cpp" />
 =======
+=======
+>>>>>>> Stashed changes
     <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Goblin.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Monster\Monster\Main.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Monster\Monster\MonsterBase.cpp" />
@@ -139,6 +142,9 @@
     <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Orc.h" />
     <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Skeleton.h" />
     <ClInclude Include="..\..\..\..\..\..\Monster\Monster\Slime.h" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
