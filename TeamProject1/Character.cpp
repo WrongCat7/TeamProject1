@@ -35,9 +35,9 @@ void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 	if (experience == 100)
 	{
 		this->level += 1;
-		this->HP += maxHP + (level * 20);
 		this->maxHP += (level * 20);
-		this->attack += (level *5);
+		this->HP += this->maxHP;
+		this->attack += (level * 5);
 		this->experience = 0;
 	}
 }
