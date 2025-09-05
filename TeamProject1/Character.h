@@ -24,6 +24,9 @@ private:
 
 public:
 
+	Character(const Character&) = delete; //복사 생성자 삭제하여 복사 방지?
+	Character& operator=(const Character&) = delete; //대입 연산자 삭제하여 대입 방지?
+
 	static Character* Getinstance(string = "");
 	void Displaystatus();
 	void Levelup();
