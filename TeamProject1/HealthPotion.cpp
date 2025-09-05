@@ -17,9 +17,11 @@ string HealthPotion::GetName()
 
 void HealthPotion::Use(Character* character)
 {
-	character->GetHP() += healthRestore;
-	character->SetHP();
-	cout  << name << "을 사용했습니다."  << "체력:" << character->GetHP() << endl;
+	string CharacterName = character->Getname();
+	int newHP = character->GetHP() += healthRestore;
+	if (newHP > character->GetmaxHP()) newHP = character->GetmaxHP();
+	character->SetHP(newHP);
+	cout  << character->Getname()<< "가 " << name << "을 사용했습니다." << character->Getname()<< "의 " << "체력:" << character->GetHP() << endl;
 }
 
 

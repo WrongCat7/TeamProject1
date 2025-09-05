@@ -16,8 +16,8 @@ string AttackBoost::GetName()
 
 void AttackBoost::Use(Character* character)
 {
-	string CharacterName = character->name;
-	character->GetAttack() += attackincreasr;
-	character->SetAttack();
-	cout << name << "을 사용했습니다." <<  "공격력:" << character->GetAttack() << endl;
+	string CharacterName = character->Getname();
+	int newattack = character->GetAttack() += attackincreasr;
+	character->SetAttack(newattack);
+	cout << character->Getname() << "가 " << name << "을 사용했습니다." << character->Getname() << "의 " << "공격력:" << character->GetAttack() << endl;
 }
