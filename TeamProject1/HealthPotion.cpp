@@ -20,7 +20,7 @@ void HealthPotion::Use(Character* character)
 	int newHP = character->GetHP() += healthRestore;
 	if (newHP > character->GetmaxHP()) newHP = character->GetmaxHP();
 	character->SetHP(newHP);
-	cout  << character->Getname()<< "가 " << name << "을 사용했습니다." << character->Getname()<< "의 " << "체력:" << character->GetHP() << endl;
+	cout  << character->Getname()<< "ê° " << name << "ì ì¬ì©íìµëë¤." << character->Getname()<< "ì " << "ì²´ë ¥:" << character->GetHP() << endl;
 }
 
 
