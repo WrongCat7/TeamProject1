@@ -11,7 +11,7 @@ private:
 
 	Character();
 	Character(string name);
-	
+
 	static Character* instance;
 	string name;
 	int level;
@@ -34,7 +34,7 @@ public:
 	void Addgold(int amount);
 	void Spendgold(int amount);
 	void Takedamage(int damage);
-	bool Isdead() const;
+	bool Isdead();
 
 	//getter
 	string Getname();

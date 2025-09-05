@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Character::Character()
+Character::Character() // 기본 생성자 정의
 {
 	name = "Player";
 	level = 1;
@@ -13,7 +13,7 @@ Character::Character()
 	gold = 15;
 }
 
-Character::Character(string name)
+Character::Character(string name) // 생정자 정의
 {
 	this->name = name;
 	this->level = 1;
@@ -26,7 +26,7 @@ Character::Character(string name)
 
 Character* Character::Getinstance(string name)
 {
-	if(instance == nullptr)
+	if (instance == nullptr)
 	{
 		instance = new Character(name);
 	}
@@ -75,35 +75,32 @@ void Character::Addgold(int amount) // 골드 증가
 void Character::Spendgold(int amount) // 골드 감소
 {
 	if (amount > 0)
-	gold -= amount;
+		gold -= amount;
 	cout << "골드를 소비하였습니다. " << amount << " 남은 골드 : " << gold << '\n';
 }
 
 void Character::Takedamage(int damage) // 캐릭터가 데미지 받는 함수
 {
 	if (damage <= 0) // 음수 데미지 방지
-	{	
+	{
 		return;
 	}
 	// 데미지 적용
 	HP -= damage;
 	cout << name << "이(가)" << damage << "만큼의 데미지를 받았다." << '\n';
+}
 
-	// HP에 데미지 적용 후 액션
+bool Character::Isdead() // 사망 여부 확인을 위한 함수
+{
 	if (HP <= 0)
-	{ 
+	{
 		HP = 0;
-		cout << name << "이(가) 사망하였습니다." << '\n';
+		return true; // 사망시 트루
 	}
 	else
 	{
-		cout << "현재 HP : " << HP << " / " << maxHP << '\n';
+		return false; // 생존시 폴스
 	}
-}
-
-bool Character::Isdead() const // 사망 여부 확인을 위한 함수
-{
-	return HP <= 0;
 }
 
 
@@ -185,7 +182,7 @@ void Character::Setattack(int attack)
 
 void Character::Setexprience(int experience)
 {
-	this->experience = experience;
+	this->experience += experience; // 경험치 누적
 }
 
 void Character::Setgold(int gold)
