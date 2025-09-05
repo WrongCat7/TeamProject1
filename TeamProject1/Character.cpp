@@ -6,9 +6,9 @@ Character::Character()
 {
 	name = "Player";
 	level = 1;
-	HP = 100;
-	maxHP = 100;
-	attack = 50;
+	HP = 200;
+	maxHP = 200;
+	attack = 30;
 	experience = 0;
 	gold = 15;
 }
@@ -17,9 +17,9 @@ Character::Character(string name)
 {
 	this->name = name;
 	this->level = 1;
-	this->HP = 100;
-	this->maxHP = 100;
-	this->attack = 50;
+	this->HP = 200;
+	this->maxHP = 200;
+	this->attack = 30;
 	this->experience = 0;
 	this->gold = 15;
 
