@@ -3,9 +3,7 @@
 #include "Character.h"
 using namespace std;
 
-AttackBoost::AttackBoost()
 {
-	name = "AttackBoost";
 	attackincreasr = 10;
 }
 
@@ -16,8 +14,10 @@ string AttackBoost::GetName()
 
 void AttackBoost::Use(Character* character)
 {
-	string CharacterName = character->name;
-	character->GetAttack() += attackincreasr;
-	character->SetAttack();
-	cout << name << "을 사용했습니다." <<  "공격력:" << character->GetAttack() << endl;
+
+	string CharacterName = character->Getname();
+	int newattack = character->GetAttack() += attackincreasr;
+	character->SetAttack(newattack);
+	cout << character->Getname() << "ê° " << name << "ì ì¬ì©íìµëë¤." << character->Getname() << "ì " << "ê³µê²©ë ¥:" << character->GetAttack() << endl;
+
 }

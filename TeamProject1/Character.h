@@ -3,9 +3,14 @@
 #include <vector>
 using namespace std;
 
+class Item;
+
 class Character
 {
 private:
+
+	Character();
+	Character(string name);
 
 	static Character* instance;
 	string name;
@@ -15,17 +20,18 @@ private:
 	int attack;
 	int experience;
 	int gold;
-	vector <item*> inventory; //인벤토리, 아이템 클래스와 연결 필요
+	vector <item*> inventory; //아이템 클래스 전방선언
 
 public:
-	Character();
-	Character(string name);
 
 	static Character* Getinstance(string = "");
 	void Displaystatus();
 	void Levelup();
 	void UseItem(int index);
-
+	void Addgold(int amount);
+	void Spendgold(int amount);
+	void Takedamage(int damage);
+	bool Isdead() const;
 
 	//getter
 	string Getname();
@@ -34,7 +40,7 @@ public:
 	int GetmaxHP();
 	int Getattack();
 	int Getexperience();
-	int Getgold();
+	int Getgold() const;
 
 	//setter
 	void Setname(string name);
@@ -45,5 +51,4 @@ public:
 	void Setexprience(int experience);
 	void Setgold(int gold);
 };
-
 
