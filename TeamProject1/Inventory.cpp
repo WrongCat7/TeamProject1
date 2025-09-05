@@ -67,13 +67,10 @@ int Inventory::GetItemCount(Item* item)
 
 void Inventory::RemoveItem(Item* item)
 {
-	for (auto it = items.begin(); it != items.end(); ++it)
+	auto it = std::find(items.begin(), items.end(), item);
+	if (it != items.end())
 	{
-		if ((*it)->GetName() == item->GetName())
-		{
-			delete* it;
-			items.erase(it);
-			return;
-		}
+		delete* it;
+		items.erase(it);
 	}
 }
