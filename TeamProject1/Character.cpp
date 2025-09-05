@@ -62,7 +62,7 @@ void Character::UseItem(int index)
 	inventory[index] = nullptr;
 }
 
-void Character::Addgold(int amount)
+void Character::Addgold(int amount) // 골드 증가 
 {
 	if (amount > 0)
 	{
@@ -71,17 +71,40 @@ void Character::Addgold(int amount)
 	}
 }
 
-void Character::Spendgold(int amount)
+void Character::Spendgold(int amount) // 골드 감소
 {
 	if (amount > 0)
 	gold -= amount;
 	cout << "골드를 소비하였습니다. " << amount << " 남은 골드 : " << gold << '\n';
 }
 
-int Character::Getgold() const
+void Character::Takedamage(int damage) // 캐릭터가 데미지 받는 함수
 {
-	return gold;
+	if (damage <= 0) // 음수 데미지 방지
+	{	
+		return;
+	}
+	// 데미지 적용
+	HP -= damage;
+	cout << name << "이(가)" << damage << "만큼의 데미지를 받았다." << '\n';
+
+	// HP에 데미지 적용 후 액션
+	if (HP <= 0)
+	{
+		HP = 0;
+		cout << name << "이(가) 사망하였습니다." << '\n';
+	}
+	else
+	{
+		cout << "현재 HP : " << HP << " / " << maxHP << '\n';
+	}
 }
+
+bool Character::Isdead() const // 사망 여부 확인을 위한 함수
+{
+	return HP <= 0;
+}
+
 
 
 void Character::Displaystatus() // 캐릭터 상태
