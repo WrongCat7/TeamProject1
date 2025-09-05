@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "Character.h"
 
+class Character;
 using namespace std;
 
 class Item
