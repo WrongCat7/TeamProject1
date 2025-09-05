@@ -3,6 +3,7 @@
 #include "Character.h"
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 using namespace std;
 
 
@@ -48,5 +49,31 @@ void Inventory::UseRandomItem(Character* character)
 	else
 	{
 		cout << "아이템 사용에 실패 했습니다." << endl;
+	}
+}
+
+int Inventory::GetItemCount(Item* item)
+{
+	int count = 0;
+	for (auto& i : items)
+	{
+		if (i->GetName() == item->GetName())
+		{
+			count++;
+		}
+	}
+	return count;
+}
+
+void Inventory::RemoveItem(Item* item)
+{
+	for (auto it = items.begin(); it != items.end(); ++it)
+	{
+		if ((*it)->GetName() == item->GetName())
+		{
+			delete* it;
+			items.erase(it);
+			return;
+		}
 	}
 }
