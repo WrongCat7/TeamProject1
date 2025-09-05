@@ -4,9 +4,8 @@
 using namespace std;
 
 
-HealthPotion::HealthPotion()
+HealthPotion::HealthPotion():Item("HealthPotion", 20)
 {
-	name = "HealthPotion";
 	healthRestore = 50;
 }
 
