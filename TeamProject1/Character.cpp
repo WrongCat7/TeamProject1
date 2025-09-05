@@ -6,9 +6,9 @@ Character::Character()
 {
 	name = "Player";
 	level = 1;
-	HP = 100;
-	maxHP = 100;
-	attack = 50;
+	HP = 200;
+	maxHP = 200;
+	attack = 30;
 	experience = 0;
 	gold = 15;
 }
@@ -17,29 +17,40 @@ Character::Character(string name)
 {
 	this->name = name;
 	this->level = 1;
-	this->HP = 100;
-	this->maxHP = 100;
-	this->attack = 50;
+	this->HP = 200;
+	this->maxHP = 200;
+	this->attack = 30;
 	this->experience = 0;
 	this->gold = 15;
-
 }
 
-Character* Character::Getinstance(string)
+Character* Character::Getinstance(string name)
 {
-	return nullptr;
+	if(instance == nullptr)
+	{
+		instance = new Character(name);
+	}
+	return instance;
 }
 
 void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 {
-	if (experience == 100)
+	if (level < 10)
 	{
-		this->level += 1;
-		this->HP += maxHP + (level * 20);
-		this->maxHP += (level * 20);
-		this->attack += (level *5);
-		this->experience = 0;
+		if (experience == 100)
+		{
+			this->level += 1;
+			this->maxHP += (level * 20);
+			this->HP += this->maxHP;
+			this->attack += (level * 5);
+			this->experience = 0;
+		}
 	}
+	else
+	{
+		cout << "최대 레벨에 도달했습니다." << '\n';
+	}
+
 }
 
 void Character::UseItem(int index)
@@ -50,6 +61,50 @@ void Character::UseItem(int index)
 	delete inventory[index];
 	inventory[index] = nullptr;
 }
+
+void Character::Addgold(int amount) // 골드 증가 
+{
+	if (amount > 0)
+	{
+		gold += amount;
+		cout << "골드를 얻었습니다." << amount << " 현재 골드 : " << gold << '\n';
+	}
+}
+
+void Character::Spendgold(int amount) // 골드 감소
+{
+	if (amount > 0)
+	gold -= amount;
+	cout << "골드를 소비하였습니다. " << amount << " 남은 골드 : " << gold << '\n';
+}
+
+void Character::Takedamage(int damage) // 캐릭터가 데미지 받는 함수
+{
+	if (damage <= 0) // 음수 데미지 방지
+	{	
+		return;
+	}
+	// 데미지 적용
+	HP -= damage;
+	cout << name << "이(가)" << damage << "만큼의 데미지를 받았다." << '\n';
+
+	// HP에 데미지 적용 후 액션
+	if (HP <= 0)
+	{
+		HP = 0;
+		cout << name << "이(가) 사망하였습니다." << '\n';
+	}
+	else
+	{
+		cout << "현재 HP : " << HP << " / " << maxHP << '\n';
+	}
+}
+
+bool Character::Isdead() const // 사망 여부 확인을 위한 함수
+{
+	return HP <= 0;
+}
+
 
 
 void Character::Displaystatus() // 캐릭터 상태
@@ -96,7 +151,7 @@ int Character::Getexperience()
 	return experience;
 }
 
-int Character::Getgold()
+int Character::Getgold() const
 {
 	return gold;
 }
