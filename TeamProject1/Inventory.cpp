@@ -23,7 +23,7 @@ void Inventory::DisplayItems()
 {
 	for (int i = 0; i < items.size(); i++)
 	{
-		cout << i << ": " << items[i]->GetName() << "  " << items[i]->GetPrice() << "골드" << endl;
+		cout << i << ": " << items[i]->GetName() << "  " << items[i]->GetPrice() << " 골드" << endl;
 	}
 }
 
