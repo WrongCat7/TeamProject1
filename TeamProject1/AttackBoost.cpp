@@ -3,6 +3,7 @@
 #include "Character.h"
 using namespace std;
 
+AttackBoost::AttackBoost():Item("AttackBoos", 20)
 {
 	attackincreasr = 10;
 }
