@@ -32,6 +32,7 @@ Character* Character::Getinstance(string name)
 	}
 	return instance;
 }
+Character* Character::instance = nullptr;
 
 void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 {
@@ -90,7 +91,7 @@ void Character::Takedamage(int damage) // 캐릭터가 데미지 받는 함수
 
 	// HP에 데미지 적용 후 액션
 	if (HP <= 0)
-	{
+	{ 
 		HP = 0;
 		cout << name << "이(가) 사망하였습니다." << '\n';
 	}

@@ -11,7 +11,7 @@ private:
 
 	Character();
 	Character(string name);
-
+	
 	static Character* instance;
 	string name;
 	int level;
