@@ -3,9 +3,8 @@
 #include "Character.h"
 using namespace std;
 
-AttackBoost::AttackBoost()
+AttackBoost::AttackBoost():Item("AttackBoos", 20)
 {
-	name = "AttackBoost";
 	attackincreasr = 10;
 }
 
