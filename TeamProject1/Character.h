@@ -20,38 +20,38 @@ private:
 	int attack;
 	int experience;
 	int gold;
-	vector <item*> inventory; //아이템 클래스 전방선언
+	vector <Item*> inventory; // 아이템 클래스 전방선언
 
 public:
 
-	Character(const Character&) = delete; //복사 생성자 삭제하여 복사 방지?
-	Character& operator=(const Character&) = delete; //대입 연산자 삭제하여 대입 방지?
+	Character(const Character&) = delete; //복사 생성자 삭제하여 복사 방지
+	Character& operator=(const Character&) = delete; //대입 연산자 삭제하여 대입 방지
 
-	static Character* Getinstance(string = "");
-	void Displaystatus();
-	void Levelup();
+	static Character* GetInstance(string = "");
+	void DisplayStatus();
+	void LevelUp();
 	void UseItem(int index);
-	void Addgold(int amount);
-	void Spendgold(int amount);
-	void Takedamage(int damage);
-	bool Isdead();
+	void AddGold(int amount);
+	void SpendGold(int amount);
+	void TakeDamage(int damage);
+	bool IsDead();
 
 	//getter
-	string Getname();
-	int Getlevel();
+	string GetName();
+	int GetLevel();
 	int GetHP();
-	int GetmaxHP();
-	int Getattack();
-	int Getexperience();
-	int Getgold() const;
+	int GetMaxHP();
+	int GetAttack();
+	int GetExperience();
+	int GetGold() const;
 
 	//setter
-	void Setname(string name);
-	void Setlevel(int level);
+	void SetName(string name);
+	void SetLevel(int level);
 	void SetHP(int HP);
-	void SetmaxHP(int maxHP);
-	void Setattack(int attack);
-	void Setexprience(int experience);
-	void Setgold(int gold);
+	void SetMaxHP(int maxHP);
+	void SetAttack(int attack);
+	void SetExprience(int experience);
+	void SetGold(int gold);
 };
 
