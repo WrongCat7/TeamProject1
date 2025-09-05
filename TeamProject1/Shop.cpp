@@ -1,16 +1,15 @@
-
 #include "Shop.h"
 #include <iostream>
 #include "Character.h"
 #include "Item.h"
 
 
-void Shop::BuyItem(Item* item, Character* character, Inventory* inventory)	//아이템과 캐릭터의 클래스를 참조
+void Shop::BuyItem(Item* item, Character* character, Inventory* inventory)
 {
-	if (character->Getgold() >= item->GetPrice())	//골드가 가격이랑 같거나 더 클때
+	if (character->Getgold() >= item->GetPrice())	//골드가 충분하면
 	{
-		character->Spendgold(item->GetPrice());	//골드 차감
-		inventory->AddItem(item);					//아이템 추가, AddItem은 추후 인벤토리 클래스에서 연결 예정
+		character->Setgold(character->Getgold() - item->GetPrice());	//골드 차감, 현재골드 - 아이템 가격 = 남는 골드
+		inventory->AddItem(item);					//인벤토리에 아이템 추가 
 		cout << item->GetName() << "구매 완료!" << endl;
 	}
 	else {											//골드가 충분하지 않을 때
@@ -19,10 +18,10 @@ void Shop::BuyItem(Item* item, Character* character, Inventory* inventory)	//아�
 }
 void Shop::SellItem(Item* item, Character* character, Inventory* inventory)	//아이템과 캐릭터의 클래스를 참조
 {
-	if (inventory->GetItemCount(item) > 0)						//아이템을 가지고 있으면 동작
+	if (inventory->GetItemCount(item) > 0)
 	{
-		character->Addgold(item->GetPrice());		//아이템의 가격만큼 골드가 증가
-		inventory->RemoveItem(item);					//인벤토리에서 아이템 삭제, 추후 인벤토리 클래스에서 DeleteItem 연결 예정
+		character->Setgold(character->Getgold() + item->GetPrice());		//골드 추가
+		inventory->RemoveItem(item);					//아이템 삭제
 		cout << item->GetName() << "판매 완료!" << endl;
 	}
 	else {
