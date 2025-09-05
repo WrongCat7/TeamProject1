@@ -1,24 +1,21 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 
 using namespace std;
 
 class Monster {
-private:
-	string Name;
-	int HP;
-	int ATK;
 
 public:
-	// »ı¼ºÀÚ
-	Monster(string Name, int HP, int ATK);
+	// ìƒì„±ì
+	virtual~Monster()
 
-	// Çàµ¿ ÇÔ¼ö
-	void Attack(Monster& target);
-	void Takedamage(int damage);
+	// ì •ë³´ í™•ì¸ í•¨ìˆ˜
+	virtual string GetName()const;
+	virtual int GetHP()const;
+	virtual int GetATK()const;
 
-	// Á¤º¸ È®ÀÎ ÇÔ¼ö
-	string GetName()const;
-	int GetHP()const;
-	int GetATK()const;
+	// í–‰ë™ í•¨ìˆ˜
+	virtual void Takedamage(int damage) = 0;
+	virtual void dropitem() = 0;
+	virtual bool Isdead();
 };

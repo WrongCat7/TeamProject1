@@ -1,8 +1,22 @@
-#pragma once
+ï»¿#pragma once
 #include "MonsterBase.h"
 
 class Skeleton : public Monster
 {
+private:
+	string name;
+	int HP;
+	int ATK;
+
 public:
-	Skeleton() : Monster("Skeleton", 40, 5) {} // ÀÌ¸§, HP , ATK ±âº»°ª
+	Skeleton(int level);
+
+	string GetName() override;
+	int GetHP() override;
+	int GetATK() override;
+
+	void Takedamage(int damage) override;
+	bool Isdead() override;
+	void dropitem() override; //êµ¬í˜„í•„ìš”
+
 };
