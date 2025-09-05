@@ -2,7 +2,6 @@
 #include <vector>
 #include "Item.h"
 
-//인벤토리 : 소지여부, 추가 / 제거, 재고 수량
 class Character;
 
 class Inventory 
@@ -18,5 +17,6 @@ public:
 
 	void DisplayItems();
 
+	void UseRandomItem(Character* character);
 };
 
