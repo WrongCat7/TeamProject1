@@ -22,24 +22,35 @@ Character::Character(string name)
 	this->attack = 30;
 	this->experience = 0;
 	this->gold = 15;
-
 }
 
-Character* Character::Getinstance(string)
+Character* Character::Getinstance(string name)
 {
-	return nullptr;
+	if(instance == nullptr)
+	{
+		instance = new Character(name);
+	}
+	return instance;
 }
 
 void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 {
-	if (experience == 100)
+	if (level < 10)
 	{
-		this->level += 1;
-		this->maxHP += (level * 20);
-		this->HP += this->maxHP;
-		this->attack += (level * 5);
-		this->experience = 0;
+		if (experience == 100)
+		{
+			this->level += 1;
+			this->maxHP += (level * 20);
+			this->HP += this->maxHP;
+			this->attack += (level * 5);
+			this->experience = 0;
+		}
 	}
+	else
+	{
+		cout << "최대 레벨에 도달했습니다." << '\n';
+	}
+
 }
 
 void Character::UseItem(int index)
@@ -49,6 +60,27 @@ void Character::UseItem(int index)
 
 	delete inventory[index];
 	inventory[index] = nullptr;
+}
+
+void Character::Addgold(int amount)
+{
+	if (amount > 0)
+	{
+		gold += amount;
+		cout << "골드를 얻었습니다." << amount << " 현재 골드 : " << gold << '\n';
+	}
+}
+
+void Character::Spendgold(int amount)
+{
+	if (amount > 0)
+	gold -= amount;
+	cout << "골드를 소비하였습니다. " << amount << " 남은 골드 : " << gold << '\n';
+}
+
+int Character::Getgold() const
+{
+	return gold;
 }
 
 
@@ -96,7 +128,7 @@ int Character::Getexperience()
 	return experience;
 }
 
-int Character::Getgold()
+int Character::Getgold() const
 {
 	return gold;
 }
