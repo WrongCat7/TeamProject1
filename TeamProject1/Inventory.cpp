@@ -1,6 +1,8 @@
 #include "Inventory.h"
 #include <iostream>
 #include "Character.h"
+#include "HealthPotion.h"
+#include "AttackBoost.h"
 #include <cstdlib>
 #include <ctime>
 #include <vector>
@@ -65,7 +67,7 @@ int Inventory::GetItemCount(Item* item)
 	return count;
 }
 
-void Inventory::RemoveItem(Item* item)
+void Inventory::FindEraseItem(Item* item)
 {
 	auto it = std::find(items.begin(), items.end(), item);
 	if (it != items.end())
@@ -73,4 +75,21 @@ void Inventory::RemoveItem(Item* item)
 		delete* it;
 		items.erase(it);
 	}
+}
+
+Item* Inventory::RandomItem()
+{
+	Item* randomitem = nullptr;
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dist(0, 1);
+
+	switch (dist(gen))
+	{
+	case 0: randomitem = new HealthPotion(); break;
+	case 1: randomitem = new AttackBoost(); break;
+
+	}
+
+	return randomitem;
 }

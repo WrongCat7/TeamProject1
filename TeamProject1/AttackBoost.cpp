@@ -3,14 +3,19 @@
 #include "Character.h"
 using namespace std;
 
-AttackBoost::AttackBoost():Item("AttackBoos", 20)
+AttackBoost::AttackBoost():Item("AttackBoost", 20)
 {
-	attackincreasr = 10;
+	attackincrease = 10;
 }
 
 string AttackBoost::GetName()
 {
 	return name;
+}
+
+int AttackBoost::GetPrice()
+{
+	return price;
 }
 
 void AttackBoost::Use(Character* character)

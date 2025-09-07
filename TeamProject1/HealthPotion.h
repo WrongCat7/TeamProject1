@@ -6,13 +6,14 @@ class HealthPotion :
     public Item
 {
 private:
-    string name;
     int healthrestore;
 
 public:
     HealthPotion();
-    string GetName();
-    void Use(Character* character);
+    string GetName() override;
+    int GetPrice() override;
+    void Use(Character* character) override;
+
 
 };
 

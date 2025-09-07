@@ -7,15 +7,14 @@ class AttackBoost :
 {
 
 private:
-
-    string name;
-    int attackincreasr;
+    int attackincrease;
 
 public:
 
     AttackBoost();
-    string GetName();
-    void Use(Character* character);
+    string GetName() override;
+    int GetPrice() override;
+    void Use(Character* character) override;
 
 };
 

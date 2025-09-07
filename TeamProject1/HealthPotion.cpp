@@ -14,6 +14,11 @@ string HealthPotion::GetName()
 	return name;
 }
 
+int HealthPotion::GetPrice()
+{
+	return price;
+}
+
 void HealthPotion::Use(Character* character)
 {
 	string CharacterName = character->GetName();
