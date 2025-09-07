@@ -1,7 +1,7 @@
-﻿#pragma once
+#pragma once
 #include "MonsterBase.h"
 
-class Skeleton : public Monster
+class Goblin : public Monster
 {
 private:
 	string name;
@@ -9,7 +9,7 @@ private:
 	int attack;
 
 public:
-	Skeleton(int level);
+	Goblin(int level);
 
 	string GetName() override;
 	int GetHP() override;

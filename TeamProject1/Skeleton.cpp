@@ -18,7 +18,7 @@ Skeleton::Skeleton(int level)
 
 	uniform_int_distribution<int> randomnum2(5, 10);
 
-	ATK = level* randomnum2(gen);
+	attack = level* randomnum2(gen);
 }
 
 string Skeleton::GetName()
@@ -26,17 +26,18 @@ string Skeleton::GetName()
 	return name;
 }
 
-int Skeleton::GetHP()const
+int Skeleton::GetHP()
 {
 	return HP;
 }
-int Skeleton::GetATK()const
+
+int Skeleton::GetAttack()
 {
-	return ATK;
+	return attack;
 }
 
 
-void Skeleton::Takedamage(int damage)
+void Skeleton::TakeDamage(int damage)
 {
 	HP -= damage;
 	if (HP < 0) HP = 0;
@@ -58,7 +59,10 @@ bool  Skeleton::Isdead() // 사망 여부 확인을 위한 함수
 }
 
 //구현필요
-void Skeleton::dropitem()
+void Skeleton::DropItem(Inventory& inventory)
 {
+	Item* randomitem = Inventory->RandomItem();
+	Inventory->AddItem(randomitem);
 
+	cout << randomitem->GetName() << "을 드롭했습니다!" << endl;
 }
