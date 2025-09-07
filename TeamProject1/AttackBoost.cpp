@@ -15,8 +15,8 @@ string AttackBoost::GetName()
 
 void AttackBoost::Use(Character* character)
 {
-	string CharacterName = character->Getname();
+	string CharacterName = character->GetName();
 	int newattack = character->GetAttack() += attackincreasr;
 	character->SetAttack(newattack);
-	cout << character->Getname() << "ê° " << name << "ì ì¬ì©íìµëë¤." << character->Getname() << "ì " << "ê³µê²©ë ¥:" << character->GetAttack() << endl;
+	cout << character->GetName() << "ê° " << name << "ì ì¬ì©íìµëë¤." << character->GetName() << "ì " << "ê³µê²©ë ¥:" << character->GetAttack() << endl;
 }

@@ -7,7 +7,7 @@ class HealthPotion :
 {
 private:
     string name;
-    int healthRestore;
+    int healthrestore;
 
 public:
     HealthPotion();

@@ -6,7 +6,7 @@ using namespace std;
 
 HealthPotion::HealthPotion():Item("HealthPotion", 20)
 {
-	healthRestore = 50;
+	healthrestore = 50;
 }
 
 string HealthPotion::GetName()
@@ -16,8 +16,8 @@ string HealthPotion::GetName()
 
 void HealthPotion::Use(Character* character)
 {
-	string CharacterName = character->Getname();
-	int newHP = character->GetHP() += healthRestore;
+	string CharacterName = character->GetName();
+	int newHP = character->GetHP() += healthrestore;
 	if (newHP > character->GetmaxHP()) newHP = character->GetmaxHP();
 	character->SetHP(newHP);
 	cout  << character->Getname()<< "ê° " << name << "ì ì¬ì©íìµëë¤." << character->Getname()<< "ì " << "ì²´ë ¥:" << character->GetHP() << endl;
