@@ -18,8 +18,8 @@ public:
 	int GetAttack() override;
 
 	void TakeDamage(int damage) override;
-	bool Isdead() override;
-	void DropItem(Inventory& inventory) override;
+	bool IsDead() override;
+	void DropItem(Inventory* inventory) override;
 
 };
 

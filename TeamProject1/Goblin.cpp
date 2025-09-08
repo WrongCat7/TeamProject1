@@ -45,7 +45,7 @@ void Goblin::TakeDamage(int damage)
 	cout << name << " 체력: " << HP << endl;
 }
 
-bool  Goblin::Isdead() // 사망 여부 확인을 위한 함수
+bool  Goblin::IsDead() // 사망 여부 확인을 위한 함수
 {
 	// HP에 데미지 적용 후 액션
 	if (HP <= 0)
@@ -60,7 +60,7 @@ bool  Goblin::Isdead() // 사망 여부 확인을 위한 함수
 }
 
 //구현필요
-void Goblin::DropItem(Inventory& inventory)
+void Goblin::DropItem(Inventory* inventory)
 {
 	Item* randomitem = Inventory->RandomItem();
 	Inventory->AddItem(randomitem);

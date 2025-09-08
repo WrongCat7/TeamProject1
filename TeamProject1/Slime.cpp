@@ -45,7 +45,7 @@ void Slime::TakeDamage(int damage)
 	cout << name << " 체력: " << HP << endl;
 }
 
-bool  Slime::Isdead() // 사망 여부 확인을 위한 함수
+bool  Slime::IsDead() // 사망 여부 확인을 위한 함수
 {
 	// HP에 데미지 적용 후 액션
 	if (HP <= 0)
@@ -60,7 +60,7 @@ bool  Slime::Isdead() // 사망 여부 확인을 위한 함수
 }
 
 //구현필요
-void Slime::DropItem(Inventory& inventory)
+void Slime::DropItem(Inventory* inventory)
 {
 	Item* randomitem = Inventory->RandomItem();
 	Inventory->AddItem(randomitem);
