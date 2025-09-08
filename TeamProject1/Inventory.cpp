@@ -67,7 +67,7 @@ int Inventory::GetItemCount(Item* item)
 	return count;
 }
 
-void Inventory::FindEraseItem(Item* item)
+void Inventory::RemoveItem(Item* item)
 {
 	auto it = std::find(items.begin(), items.end(), item);
 	if (it != items.end())

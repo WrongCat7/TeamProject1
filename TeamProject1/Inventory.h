@@ -21,7 +21,7 @@ public:
 
 	int GetItemCount(Item* item);
 
-	void FindEraseItem(Item* item);
+	void RemoveItem(Item* item);
 
 	Item* RandomItem();
 };
