@@ -1,6 +1,7 @@
 #pragma once
 #include "MonsterBase.h"
 
+class Inventory;
 class Slime : public Monster
 {
 private:

@@ -2,6 +2,7 @@
 #include <random>
 #include "Orc.h"
 #include "MonsterBase.h"
+#include "Inventory.h"
 
 using namespace std;
 

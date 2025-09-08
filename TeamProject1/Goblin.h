@@ -1,6 +1,8 @@
 #pragma once
 #include "MonsterBase.h"
 
+class Inventory;
+
 class Goblin : public Monster
 {
 private:

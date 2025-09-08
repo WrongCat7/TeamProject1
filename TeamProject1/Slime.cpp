@@ -2,11 +2,12 @@
 #include <random>
 #include "Slime.h"
 #include "MonsterBase.h"
+#include "Inventory.h"
 
 using namespace std;
 
 
-Slime::Skeleton(int level)
+Slime::Slime(int level)
 {
 	name = "ΩΩ∂Û¿”";
 
