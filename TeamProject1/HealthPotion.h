@@ -6,7 +6,8 @@ class HealthPotion :
     public Item
 {
 private:
-    int healthrestore;
+    string name;
+    int price;
 
 public:
     HealthPotion();

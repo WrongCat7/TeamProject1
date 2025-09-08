@@ -4,6 +4,7 @@
 #include "HealthPotion.h"
 #include "AttackBoost.h"
 #include "Item.h"
+#include <random>
 #include <cstdlib>
 #include <ctime>
 #include <vector>

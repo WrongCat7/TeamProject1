@@ -6,24 +6,16 @@ using namespace std;
 
 class Item
 {
-
-protected:
-
-	string name;
-	int price;
+private:
 
 public:
 
-	Item(string name = "", int price = 0) :name(name), price(price) 
-	{
-
-	}
-	virtual ~Item() {}
+	virtual~Item() = default;
 
 	virtual string GetName() = 0;
 	virtual void Use(Character* character) = 0;
 	virtual int GetPrice() = 0;
-
+	void ItemsName(int choice);
 };
 //¡÷ºÆ1
 

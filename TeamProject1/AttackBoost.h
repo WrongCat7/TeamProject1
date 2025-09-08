@@ -8,7 +8,8 @@ class AttackBoost :
 {
 
 private:
-    int attackincrease;
+    string name;
+    int price;
 
 public:
 
