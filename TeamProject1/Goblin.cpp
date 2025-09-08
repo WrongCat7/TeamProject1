@@ -1,53 +1,53 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <random>
-#include "Skeleton.h"
+#include "Goblin.h"
 #include "MonsterBase.h"
 #include "Inventory.h"
 
 using namespace std;
 
 
-Skeleton::Skeleton(int level)
+Goblin::Goblin(int level)
 {
-	name = "ìŠ¤ì¼ˆë ˆí†¤";
+	name = "°íºí¸°";
 
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> randomnum1(20, 30);
-	
+
 	HP = level * randomnum1(gen);
 
 	uniform_int_distribution<int> randomnum2(5, 10);
 
-	attack = level* randomnum2(gen);
+	attack = level * randomnum2(gen);
 }
 
-string Skeleton::GetName()
+string Goblin::GetName()
 {
 	return name;
 }
 
-int Skeleton::GetHP()
+int Goblin::GetHP()
 {
 	return HP;
 }
 
-int Skeleton::GetAttack()
+int Goblin::GetAttack()
 {
 	return attack;
 }
 
 
-void Skeleton::TakeDamage(int damage)
+void Goblin::TakeDamage(int damage)
 {
 	HP -= damage;
 	if (HP < 0) HP = 0;
-	cout << name << " ì²´ë ¥: " << HP << endl;
+	cout << name << " Ã¼·Â: " << HP << endl;
 }
 
-bool  Skeleton::Isdead() // ì‚¬ë§ ì—¬ë¶€ í™•ì¸ì„ ìœ„í•œ í•¨ìˆ˜
+bool  Goblin::Isdead() // »ç¸Á ¿©ºÎ È®ÀÎÀ» À§ÇÑ ÇÔ¼ö
 {
-	// HPì— ë°ë¯¸ì§€ ì ìš© í›„ ì•¡ì…˜
+	// HP¿¡ µ¥¹ÌÁö Àû¿ë ÈÄ ¾×¼Ç
 	if (HP <= 0)
 	{
 		HP = 0;
@@ -59,11 +59,11 @@ bool  Skeleton::Isdead() // ì‚¬ë§ ì—¬ë¶€ í™•ì¸ì„ ìœ„í•œ í•¨ìˆ˜
 	}
 }
 
-//êµ¬í˜„í•„ìš”
-void Skeleton::DropItem(Inventory& inventory)
+//±¸ÇöÇÊ¿ä
+void Goblin::DropItem(Inventory& inventory)
 {
 	Item* randomitem = Inventory->RandomItem();
 	Inventory->AddItem(randomitem);
 
-	cout << randomitem->GetName() << "ì„ ë“œë¡­í–ˆìŠµë‹ˆë‹¤!" << endl;
+	cout << randomitem->GetName() << "À» µå·ÓÇß½À´Ï´Ù!" << endl;
 }
