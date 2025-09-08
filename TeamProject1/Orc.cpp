@@ -62,8 +62,8 @@ bool  Orc::IsDead() // 사망 여부 확인을 위한 함수
 //구현필요
 void Orc::DropItem(Inventory* inventory)
 {
-	Item* randomitem = Inventory->RandomItem();
-	Inventory->AddItem(randomitem);
+	Item* randomitem = inventory->RandomItem();
+	inventory->AddItem(randomitem);
 
 	cout << randomitem->GetName() << "을 드롭했습니다!" << endl;
 }
