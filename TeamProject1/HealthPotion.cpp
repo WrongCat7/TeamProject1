@@ -1,4 +1,4 @@
-#include "HealthPotion.h"
+﻿#include "HealthPotion.h"
 #include <iostream>
 #include "Character.h"
 using namespace std;
@@ -26,6 +26,7 @@ void HealthPotion::Use(Character* character)
 	if (newHP > character->GetmaxHP()) newHP = character->GetmaxHP();
 	character->SetHP(newHP);
 	cout  << character->Getname()<< "ê° " << name << "ì ì¬ì©íìµëë¤." << character->Getname()<< "ì " << "ì²´ë ¥:" << character->GetHP() << endl;
+
 }
 
 
