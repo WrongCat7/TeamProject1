@@ -1,5 +1,6 @@
 #include "Character.h"
 #include <iostream>
+#include "Item.h"
 using namespace std;
 
 Character::Character() // 기본 생성자 정의
@@ -24,7 +25,7 @@ Character::Character(string name) // 생정자 정의
 	this->gold = 15;
 }
 
-Character* Character::Getinstance(string name)
+Character* Character::GetInstance(string name)
 {
 	if (instance == nullptr)
 	{
@@ -34,7 +35,7 @@ Character* Character::Getinstance(string name)
 }
 Character* Character::instance = nullptr;
 
-void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
+void Character::LevelUp() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 {
 	if (level < 10)
 	{
@@ -57,13 +58,13 @@ void Character::Levelup() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 void Character::UseItem(int index)
 {
 	inventory[index]->Use(); // 아이템 사용
-	cout << inventory[index]->Getname() << " 아이템을 사용했습니다. \n";
+	cout << inventory[index]->GetName() << " 아이템을 사용했습니다. \n";
 
 	delete inventory[index];
 	inventory[index] = nullptr;
 }
 
-void Character::Addgold(int amount) // 골드 증가 
+void Character::AddGold(int amount) // 골드 증가 
 {
 	if (amount > 0)
 	{
@@ -72,14 +73,14 @@ void Character::Addgold(int amount) // 골드 증가
 	}
 }
 
-void Character::Spendgold(int amount) // 골드 감소
+void Character::SpendGold(int amount) // 골드 감소
 {
 	if (amount > 0)
 		gold -= amount;
 	cout << "골드를 소비하였습니다. " << amount << " 남은 골드 : " << gold << '\n';
 }
 
-void Character::Takedamage(int damage) // 캐릭터가 데미지 받는 함수
+void Character::TakeDamage(int damage) // 캐릭터가 데미지 받는 함수
 {
 	if (damage <= 0) // 음수 데미지 방지
 	{
@@ -90,7 +91,7 @@ void Character::Takedamage(int damage) // 캐릭터가 데미지 받는 함수
 	cout << name << "이(가)" << damage << "만큼의 데미지를 받았다." << '\n';
 }
 
-bool Character::Isdead() // 사망 여부 확인을 위한 함수
+bool Character::IsDead() // 사망 여부 확인을 위한 함수
 {
 	if (HP <= 0)
 	{
@@ -103,9 +104,7 @@ bool Character::Isdead() // 사망 여부 확인을 위한 함수
 	}
 }
 
-
-
-void Character::Displaystatus() // 캐릭터 상태
+void Character::DisplayStatus() // 캐릭터 상태
 {
 	cout << "---------Statsus---------" << '\n';
 	cout << " 이름 : " << name << '\n';
@@ -119,12 +118,12 @@ void Character::Displaystatus() // 캐릭터 상태
 }
 
 // getter 함수
-string Character::Getname()
+string Character::GetName()
 {
 	return string();
 }
 
-int Character::Getlevel()
+int Character::GetLevel()
 {
 	return level;
 }
@@ -134,34 +133,33 @@ int Character::GetHP()
 	return HP;
 }
 
-int Character::GetmaxHP()
+int Character::GetMaxHP()
 {
 	return maxHP;
 }
 
-int Character::Getattack()
+int Character::GetAttack()
 {
 	return attack;
 }
 
-int Character::Getexperience()
+int Character::GetExperience()
 {
 	return experience;
 }
 
-int Character::Getgold() const
+int Character::GetGold() const
 {
 	return gold;
 }
 
-
 //setter 함수
-void Character::Setname(string name)
+void Character::SetName(string name)
 {
 	this->name = name;
 }
 
-void Character::Setlevel(int level)
+void Character::SetLevel(int level)
 {
 	this->level = level;
 }
@@ -170,24 +168,24 @@ void Character::SetHP(int HP)
 {
 	this->HP = HP;
 }
-void Character::SetmaxHP(int maxHP)
+void Character::SetMaxHP(int maxHP)
 {
 	this->maxHP = maxHP;
 }
 
-void Character::Setattack(int attack)
+void Character::SetAttack(int attack)
 {
 	this->attack = attack;
 }
 
-void Character::Setexprience(int experience)
+void Character::SetExprience(int experience)
 {
 	this->experience += experience; // 경험치 누적
 }
 
-void Character::Setgold(int gold)
+void Character::SetGold(int gold)
 {
-	this->gold = gold;
+	this->gold += gold; // 골드 누적, 상품 구매 시 음수로 골드 차감
 }
 
 
