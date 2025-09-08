@@ -3,9 +3,9 @@
 #include "Character.h"
 using namespace std;
 
-AttackBoost::AttackBoost():Item("AttackBoos", 20)
+AttackBoost::AttackBoost():Item("AttackBoost", 20)
 {
-	attackincreasr = 10;
+	attackincrease = 10;
 }
 
 string AttackBoost::GetName()
@@ -13,12 +13,16 @@ string AttackBoost::GetName()
 	return name;
 }
 
+int AttackBoost::GetPrice()
+{
+	return price;
+}
+
 void AttackBoost::Use(Character* character)
 {
-
-	string CharacterName = character->Getname();
+	string CharacterName = character->GetName();
 	int newattack = character->GetAttack() += attackincreasr;
 	character->SetAttack(newattack);
-	cout << character->Getname() << "ê° " << name << "ì ì¬ì©íìµëë¤." << character->Getname() << "ì " << "ê³µê²©ë ¥:" << character->GetAttack() << endl;
-
+	cout << character->GetName() << "ê° " << name << "ì ì¬ì©íìµëë¤." << character->GetName() << "ì " << "ê³µê²©ë ¥:" << character->GetAttack() << endl;
 }
+

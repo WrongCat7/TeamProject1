@@ -22,8 +22,7 @@ public:
 
 	virtual string GetName() = 0;
 	virtual void Use(Character* character) = 0;
-
-	int GetPrice() const { return price; }
+	virtual int GetPrice() = 0;
 
 };
 

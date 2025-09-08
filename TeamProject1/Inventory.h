@@ -18,5 +18,11 @@ public:
 	void DisplayItems();
 
 	void UseRandomItem(Character* character);
+
+	int GetItemCount(Item* item);
+
+	void RemoveItem(Item* item);
+
+	Item* RandomItem();
 };
 

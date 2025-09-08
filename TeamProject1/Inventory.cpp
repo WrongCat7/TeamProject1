@@ -1,8 +1,11 @@
 #include "Inventory.h"
 #include <iostream>
 #include "Character.h"
+#include "HealthPotion.h"
+#include "AttackBoost.h"
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 using namespace std;
 
 
@@ -49,4 +52,44 @@ void Inventory::UseRandomItem(Character* character)
 	{
 		cout << "아이템 사용에 실패 했습니다." << endl;
 	}
+}
+
+int Inventory::GetItemCount(Item* item)
+{
+	int count = 0;
+	for (auto& i : items)
+	{
+		if (i->GetName() == item->GetName())
+		{
+			count++;
+		}
+	}
+	return count;
+}
+
+void Inventory::RemoveItem(Item* item)
+{
+	auto it = std::find(items.begin(), items.end(), item);
+	if (it != items.end())
+	{
+		delete* it;
+		items.erase(it);
+	}
+}
+
+Item* Inventory::RandomItem()
+{
+	Item* randomitem = nullptr;
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dist(0, 1);
+
+	switch (dist(gen))
+	{
+	case 0: randomitem = new HealthPotion(); break;
+	case 1: randomitem = new AttackBoost(); break;
+
+	}
+
+	return randomitem;
 }
