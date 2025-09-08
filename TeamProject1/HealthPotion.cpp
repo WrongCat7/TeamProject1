@@ -31,4 +31,4 @@ void HealthPotion::Use(Character* character)
 
 }
 
-//주석1
+//주석2

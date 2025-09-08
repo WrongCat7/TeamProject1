@@ -95,4 +95,4 @@ Item* Inventory::RandomItem()
 
 	return randomitem;
 }
-//주석1
+//주석2

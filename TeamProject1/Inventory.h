@@ -25,4 +25,4 @@ public:
 
 	Item* RandomItem();
 };
-//주석1
+//주석2

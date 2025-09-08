@@ -14,4 +14,4 @@ void Item::ItemsName(int choice)
 	return shopitems;
 }
 
-//주석1
+//주석2

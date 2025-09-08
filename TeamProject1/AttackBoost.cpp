@@ -27,4 +27,4 @@ void AttackBoost::Use(Character* character)
 	character->SetAttack(newattack);
 	cout << character->GetName() << " 이" << name << "을 사용했습니다." << character->GetName() << " 의" << " 공경력: " << character->GetAttack() << endl;
 }
-//주석1
+//주석2
