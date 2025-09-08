@@ -20,4 +20,5 @@ public:
 	virtual void TakeDamage(int damage) = 0;
 	virtual bool Isdead() = 0;
 	virtual void DropItem(Inventory& inventory) = 0;
+	int RandomGold();
 };

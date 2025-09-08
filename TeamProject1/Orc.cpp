@@ -7,7 +7,7 @@
 using namespace std;
 
 
-Orc::Skeleton(int level)
+Orc::Orc(int level)
 {
 	name = "ø¿≈©";
 
