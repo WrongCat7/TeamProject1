@@ -4,6 +4,7 @@
 #include "HealthPotion.h"
 #include "AttackBoost.h"
 #include "Item.h"
+#include <random>
 #include <cstdlib>
 #include <ctime>
 #include <vector>
@@ -94,4 +95,4 @@ Item* Inventory::RandomItem()
 
 	return randomitem;
 }
-//주석1
+//주석2

@@ -4,9 +4,10 @@
 #include "Item.h"
 using namespace std;
 
-AttackBoost::AttackBoost():Item("AttackBoost", 20)
+AttackBoost::AttackBoost()
 {
-	attackincrease = 10;
+	name = "AttackBoost";
+	price = 20;
 }
 
 string AttackBoost::GetName()
@@ -22,8 +23,8 @@ int AttackBoost::GetPrice()
 void AttackBoost::Use(Character* character)
 {
 	string CharacterName = character->GetName();
-	int newattack = character->GetAttack() += attackincreasr;
+	int newattack = character->GetAttack() + 10;
 	character->SetAttack(newattack);
-	cout << character->GetName() << "ê° " << name << "ì ì¬ì©íìµëë¤." << character->GetName() << "ì " << "ê³µê²©ë ¥:" << character->GetAttack() << endl;
+	cout << character->GetName() << " 이" << name << "을 사용했습니다." << character->GetName() << " 의" << " 공경력: " << character->GetAttack() << endl;
 }
-//주석1
+//주석2

@@ -8,7 +8,8 @@ class AttackBoost :
 {
 
 private:
-    int attackincrease;
+    string name;
+    int price;
 
 public:
 
@@ -19,4 +20,4 @@ public:
 
 };
 
-//주석1
+//주석2

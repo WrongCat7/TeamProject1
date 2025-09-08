@@ -2,4 +2,16 @@
 #include <iostream>
 #include "Character.h"
 
-//주석1
+void Item::ItemsName(int choice)
+{
+	Item* shopitems;
+	switch (choice)
+	{
+	case 0: shopitems = new HealthPotion(); break;
+	case 1: shopitems = new AttackBoost(); break;
+	}
+
+	return shopitems;
+}
+
+//주석2

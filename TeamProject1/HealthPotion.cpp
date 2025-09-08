@@ -5,9 +5,10 @@
 using namespace std;
 
 
-HealthPotion::HealthPotion():Item("HealthPotion", 20)
+HealthPotion::HealthPotion()
 {
-	healthrestore = 50;
+	name = "HealthPotion";
+	price = 20;
 }
 
 string HealthPotion::GetName()
@@ -23,11 +24,11 @@ int HealthPotion::GetPrice()
 void HealthPotion::Use(Character* character)
 {
 	string CharacterName = character->GetName();
-	int newHP = character->GetHP() += healthrestore;
-	if (newHP > character->GetmaxHP()) newHP = character->GetmaxHP();
+	int newHP = character->GetHP() + 50;
+	if (newHP > character->GetMaxHP()) newHP = character->GetMaxHP();
 	character->SetHP(newHP);
-	cout  << character->Getname()<< "ê° " << name << "ì ì¬ì©íìµëë¤." << character->Getname()<< "ì " << "ì²´ë ¥:" << character->GetHP() << endl;
+	cout  << character->GetName()<< " 이" << name << "을 사용했습니다." << character->GetName()<< " 의" << " 체력: " << character->GetHP() << endl;
 
 }
 
-//주석1
+//주석2
