@@ -17,7 +17,7 @@ public:
 
 	void TakeDamage(int damage) override;
 	bool Isdead() override;
-	void DropItem(Character* character) override;
+	void DropItem(Inventory& inventory) override;
 
 };
 
