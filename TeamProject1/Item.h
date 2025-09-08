@@ -25,5 +25,5 @@ public:
 	virtual int GetPrice() = 0;
 
 };
-
+//¡÷ºÆ1
 

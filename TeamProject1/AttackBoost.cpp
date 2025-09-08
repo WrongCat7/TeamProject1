@@ -1,6 +1,7 @@
 ﻿#include "AttackBoost.h"
 #include <iostream>
 #include "Character.h"
+#include "Item.h"
 using namespace std;
 
 AttackBoost::AttackBoost():Item("AttackBoost", 20)
@@ -25,4 +26,4 @@ void AttackBoost::Use(Character* character)
 	character->SetAttack(newattack);
 	cout << character->GetName() << "ê° " << name << "ì ì¬ì©íìµëë¤." << character->GetName() << "ì " << "ê³µê²©ë ¥:" << character->GetAttack() << endl;
 }
-
+//주석1

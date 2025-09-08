@@ -25,4 +25,4 @@ public:
 
 	Item* RandomItem();
 };
-
+//¡÷ºÆ1

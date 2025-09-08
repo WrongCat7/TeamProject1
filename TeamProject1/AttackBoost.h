@@ -2,6 +2,7 @@
 #include "Item.h"
 
 class Character;
+class Item;
 class AttackBoost :
     public Item
 {
@@ -18,3 +19,4 @@ public:
 
 };
 
+//주석1

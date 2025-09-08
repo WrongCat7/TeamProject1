@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
+#include "Item.h"
 #include <cstdlib>
 #include <ctime>
 #include <vector>
@@ -93,3 +94,4 @@ Item* Inventory::RandomItem()
 
 	return randomitem;
 }
+//주석1

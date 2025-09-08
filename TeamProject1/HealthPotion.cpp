@@ -1,6 +1,7 @@
 ﻿#include "HealthPotion.h"
 #include <iostream>
 #include "Character.h"
+#include "Item.h"
 using namespace std;
 
 
@@ -29,4 +30,4 @@ void HealthPotion::Use(Character* character)
 
 }
 
-
+//주석1
