@@ -1,9 +1,8 @@
-﻿#pragma once
+#pragma once
 #include "MonsterBase.h"
 
 class Inventory;
-
-class Skeleton : public Monster
+class Slime : public Monster
 {
 private:
 	string name;
@@ -11,7 +10,7 @@ private:
 	int attack;
 
 public:
-	Skeleton(int level);
+	Slime(int level);
 
 	string GetName() override;
 	int GetHP() override;

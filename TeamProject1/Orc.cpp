@@ -41,11 +41,9 @@ int Orc::GetAttack()
 void Orc::TakeDamage(int damage)
 {
 	HP -= damage;
-	if (HP < 0) HP = 0;
-	cout << name << " 체력: " << HP << endl;
 }
 
-bool  Orc::Isdead() // 사망 여부 확인을 위한 함수
+bool  Orc::IsDead() // 사망 여부 확인을 위한 함수
 {
 	// HP에 데미지 적용 후 액션
 	if (HP <= 0)
@@ -60,10 +58,10 @@ bool  Orc::Isdead() // 사망 여부 확인을 위한 함수
 }
 
 //구현필요
-void Orc::DropItem(Inventory& inventory)
+void Orc::DropItem(Inventory* inventory)
 {
-	Item* randomitem = Inventory->RandomItem();
-	Inventory->AddItem(randomitem);
+	Item* randomitem = inventory->RandomItem();
+	inventory->AddItem(randomitem);
 
 	cout << randomitem->GetName() << "을 드롭했습니다!" << endl;
 }

@@ -1,51 +1,51 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <random>
-#include "Skeleton.h"
+#include "Slime.h"
 #include "MonsterBase.h"
 #include "Inventory.h"
 
 using namespace std;
 
 
-Skeleton::Skeleton(int level)
+Slime::Slime(int level)
 {
-	name = "ìŠ¤ì¼ˆë ˆí†¤";
+	name = "½½¶óÀÓ";
 
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> randomnum1(20, 30);
-	
+
 	HP = level * randomnum1(gen);
 
 	uniform_int_distribution<int> randomnum2(5, 10);
 
-	attack = level* randomnum2(gen);
+	attack = level * randomnum2(gen);
 }
 
-string Skeleton::GetName()
+string Slime::GetName()
 {
 	return name;
 }
 
-int Skeleton::GetHP()
+int Slime::GetHP()
 {
 	return HP;
 }
 
-int Skeleton::GetAttack()
+int Slime::GetAttack()
 {
 	return attack;
 }
 
 
-void Skeleton::TakeDamage(int damage)
+void Slime::TakeDamage(int damage)
 {
 	HP -= damage;
 }
 
-bool  Skeleton::IsDead() // ì‚¬ë§ ì—¬ë¶€ í™•ì¸ì„ ìœ„í•œ í•¨ìˆ˜
+bool  Slime::IsDead() // »ç¸Á ¿©ºÎ È®ÀÎÀ» À§ÇÑ ÇÔ¼ö
 {
-	// HPì— ë°ë¯¸ì§€ ì ìš© í›„ ì•¡ì…˜
+	// HP¿¡ µ¥¹ÌÁö Àû¿ë ÈÄ ¾×¼Ç
 	if (HP <= 0)
 	{
 		HP = 0;
@@ -57,11 +57,11 @@ bool  Skeleton::IsDead() // ì‚¬ë§ ì—¬ë¶€ í™•ì¸ì„ ìœ„í•œ í•¨ìˆ˜
 	}
 }
 
-//êµ¬í˜„í•„ìš”
-void Skeleton::DropItem(Inventory* inventory)
+//±¸ÇöÇÊ¿ä
+void Slime::DropItem(Inventory* inventory)
 {
 	Item* randomitem = inventory->RandomItem();
 	inventory->AddItem(randomitem);
 
-	cout << randomitem->GetName() << "ì„ ë“œë¡­í–ˆìŠµë‹ˆë‹¤!" << endl;
+	cout << randomitem->GetName() << "À» µå·ÓÇß½À´Ï´Ù!" << endl;
 }
