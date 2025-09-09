@@ -30,25 +30,35 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 	{
 		system("cls");
 		cout << "----- 상점 -----" << endl;
+		cout << "----------------" << endl;
 		cout << "현재 보유 골드 : " << character->GetGold() << " 골드" << endl;
 		cout << "1. 아이템 구매" << endl;
 		cout << "2. 아이템 판매" << endl;
 		cout << "3. 상점 나가기" << endl;
+		cout << "----------------" << endl;
+		cout << "----------------" << endl;
 		cin >> input;
 
 		if (input == 1)
 		{
+			cout << "-------------------------" << endl;
+			cout << "-------------------------" << endl;
 			cout << "구매 가능한 아이템 목록" << endl;
 			for (int i = 0; i < shopitems.size(); i++)
 			{
 				cout << (i + 1) << ":" << shopitems[i]->GetName()
 					<< " " << shopitems[i]->GetPrice() << " 골드" << endl;
 			}
+			cout << "-------------------------" << endl;
+			cout << "-------------------------" << endl;
+
 			int buynum;
 			cout << "번호를 입력하세요 (취소 0) : " << endl;
 			cin >> buynum;
+			cout << "-------------------------" << endl;
+			cout << "-------------------------" << endl;
 
-			if (buynum == 0)
+			if (buynum == shopitems.size())
 			{
 				return;
 			}
@@ -59,7 +69,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 			}
 			else
 			{
-				cout << "잘못된 입력입니다 1~" << shopitems.size() << "번 중에서 골라주세요." << endl;
+				cout << "잘못된 입력입니다. 1~" << shopitems.size() << "번 중에서 골라주세요." << endl;
 			}
 		}
 		else if (input == 2)
@@ -76,7 +86,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 			cout << "번호를 입력하세요 (취소 0) : " << endl;
 			cin >> sellnum;
 
-			if (sellnum == 0)
+			if (sellnum > shopitems.size())
 			{
 				return;
 			}
@@ -92,7 +102,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 		}
 		else
 		{
-			cout << "잘못된 입력입니다." << endl;
+			cout << "잘못된 입력입니다. 1~" << shopitems.size() << " 번 중에서 골라주세요." << endl;
 		}
 
 		system("pause");
@@ -131,4 +141,3 @@ void Shop::SellItem(Character* character, Inventory* inventory, Item* item)
 		cout << "판매할 아이템이 없습니다!" << endl;
 	}
 }
-
