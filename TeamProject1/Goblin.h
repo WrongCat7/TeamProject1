@@ -1,6 +1,7 @@
 #pragma once
 #include "MonsterBase.h"
 
+class Character;
 class Inventory;
 
 class Goblin : public Monster
@@ -21,6 +22,6 @@ public:
 
 	void TakeDamage(int damage) override;
 	bool IsDead() override;
-	void DropItem(Inventory* inventory) override;
+	void DropItem(Character* player, Inventory* inventory) override;
 
 };

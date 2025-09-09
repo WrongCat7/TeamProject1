@@ -3,6 +3,7 @@
 
 using namespace std;
 
+class Character;
 class Inventory;
 
 class Monster {
@@ -22,5 +23,5 @@ public:
 	// 행동 함수
 	virtual void TakeDamage(int damage) = 0;
 	virtual bool IsDead() = 0;
-	virtual void DropItem(Inventory* inventory) = 0;
+	virtual void DropItem(Character* player, Inventory* inventory) = 0;
 };

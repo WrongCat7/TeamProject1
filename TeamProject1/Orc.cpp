@@ -3,6 +3,7 @@
 #include "Orc.h"
 #include "MonsterBase.h"
 #include "Inventory.h"
+#include "Character.h"
 
 using namespace std;
 
@@ -73,10 +74,10 @@ bool  Orc::IsDead() // 사망 여부 확인을 위한 함수
 }
 
 //구현필요
-void Orc::DropItem(Inventory* inventory)
+void Orc::DropItem(Character* player, Inventory* inventory)
 {
 	Item* randomitem = inventory->RandomItem();
-	inventory->AddItem(randomitem);
+	randomitem->Use(player);
 
-	cout << randomitem->GetName() << "을 드롭했습니다!" << endl;
+	cout << randomitem->GetName() << "을 드롭하고 바로 사용했습니다!" << endl;
 }
