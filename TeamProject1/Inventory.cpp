@@ -18,7 +18,7 @@ void Inventory::AddItem(Item* item)
 
 void Inventory::UseItem(int index, Character* character)
 {
-	if ( index < 0 ) return;
+	if (index < 0 || index >= items.size()) return;
 	items[index]->Use(character);
 	delete items[index];
 	items.erase(items.begin() + index);
@@ -37,6 +37,7 @@ void Inventory::UseRandomItem(Character* character)
 	if (items.empty())
 	{
 		cout << "인벤토리가 비어있습니다." << endl;
+		return;
 	}
 
 	int random = rand() % 100;
@@ -95,4 +96,4 @@ Item* Inventory::RandomItem()
 
 	return randomitem;
 }
-//주석2
+//주석1
