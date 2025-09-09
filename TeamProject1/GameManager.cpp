@@ -76,8 +76,10 @@ void GameManager::Battle(Character* player) {
 			monster->TakeDamage(player->GetAttack());
 			if (monster->IsDead() == 1) {
 				cout << player->GetName() << "이(가) 공격합니다! " << monster->GetName() << " 처치!" << endl;
-				cout << player->GetName() << "이(가) 50 EXP와 "<<endl;
 				player->SetExprience(50);
+				player->SetGold(monster->GetGold());
+				cout << player->GetName() << "이(가) 50 EXP와 " << monster->GetGold() << "골드를 획득했습니다. "
+					<< "현재 EXP: " << player->GetExperience() << "/100, 골드: " << player->GetGold() << endl;
 				delete monster;
 				monster = nullptr;
 				break;
@@ -141,10 +143,13 @@ int main() {
 					<< "======================================\n"
 					<< "인벤토리\n"
 					<< "--------------------------------------" << endl;
-				playerInventory.DisplayItems();
+				if(playerInventory.DisplayItems() == 0){
 				cout << "======================================" << endl;
+				cout << "아이템의 번호를 입력해주세요: ";
 				cin >> actionNUM;
 				playerInventory.UseItem(actionNUM, player);
+				}
+				cout << "======================================" << endl;
 			}
 			else if (SNUM == "3") {
 				GM->VisitShop(player, &playerInventory);//상점
