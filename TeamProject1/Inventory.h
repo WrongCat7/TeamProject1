@@ -19,7 +19,7 @@ public:
 
 	void UseRandomItem(Character* character);
 
-	int GetItemCount(Item* item);
+	int GetItemCount();
 
 	void RemoveItem(Item* item);
 
