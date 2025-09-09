@@ -9,6 +9,7 @@ class AttackBoost :
 private:
     string name;
     int price;
+    int count;
 
 public:
 
@@ -16,7 +17,8 @@ public:
     string GetName() override;
     int GetPrice() override;
     void Use(Character* character) override;
-
+    int GetCount();
+    void SetCount(int num);
 };
 
 //주석2

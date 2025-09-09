@@ -15,7 +15,7 @@ public:
 
 	void UseItem(int index, Character* character);
 
-	void DisplayItems();
+	int DisplayItems();
 
 	void UseRandomItem(Character* character);
 

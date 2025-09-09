@@ -13,28 +13,61 @@ using namespace std;
 
 void Inventory::AddItem(Item* item)
 {
-	items.push_back(item);
+	int boolcheck = 0;
+	if (items.empty()) {
+		items.push_back(item);
+		items[0]->SetCount(1);
+	}
+	else {
+		for (int i = 0; i < items.size(); i++) {
+			if (items[i]->GetName() == item->GetName()) {
+				boolcheck += 1;
+			}
+		}
+		if (boolcheck == 0) {
+			items.push_back(item);
+			for (int i = 0; i < items.size(); i++) {
+				if (items[i]->GetName() == item->GetName()) {
+					items[i]->SetCount(1);
+				}
+			}
+		}
+		else {
+			for (int i = 0; i < items.size(); i++) {
+				if (items[i]->GetName() == item->GetName()) {
+					items[i]->SetCount(1);
+				}
+			}
+		}
+	}
 }
 
 void Inventory::UseItem(int index, Character* character)
 {
-	if (index < 0 || index >= items.size()) return;
-	items[index]->Use(character);
-	delete items[index];
-	items.erase(items.begin() + index);
+	if (index < items.size()) {
+		if (items[index - 1]->GetCount() > 0) {
+			items[index - 1]->Use(character);
+			items[index - 1]->SetCount(-1);
+			if (items[index - 1]->GetCount() < 1) {
+				delete items[index - 1];
+				items.erase(items.begin() + index - 1);
+			}
+		}
+	}
 }
-
-void Inventory::DisplayItems()
+int Inventory::DisplayItems()
 {
 	if (items.empty())
 	{
 		cout << "인벤토리에 아무것도 없습니다." << endl;
-		return;
+		return 1;
 	}
 	for (int i = 0; i < items.size(); i++)
 	{
-		cout << i << ": " << items[i]->GetName() << "  " << items[i]->GetPrice() << " 골드" << endl;
+		cout << i+1 << ": " << items[i]->GetName() << "  " << items[i]->GetCount()<<"개 " << items[i]->GetPrice() << " 골드" << endl;
 	}
+	cout << items.size() + 1 << ": 뒤로가기" << endl;
+	return 0;
 }
 
 void Inventory::UseRandomItem(Character* character)
@@ -97,5 +130,7 @@ Item* Inventory::RandomItem()
 	}
 
 	return randomitem;
+	delete randomitem;
+	randomitem = nullptr;
 }
 //주석1

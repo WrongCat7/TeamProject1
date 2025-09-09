@@ -9,6 +9,7 @@ HealthPotion::HealthPotion()
 {
 	name = "HealthPotion";
 	price = 20;
+	count = 0;
 }
 
 string HealthPotion::GetName()
@@ -31,4 +32,10 @@ void HealthPotion::Use(Character* character)
 
 }
 
+int HealthPotion::GetCount() {
+	return count;
+}
+void HealthPotion::SetCount(int num) {
+	count += num;
+}
 //주석2

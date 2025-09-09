@@ -8,6 +8,7 @@ AttackBoost::AttackBoost()
 {
 	name = "AttackBoost";
 	price = 20;
+	count = 0;
 }
 
 string AttackBoost::GetName()
@@ -25,6 +26,13 @@ void AttackBoost::Use(Character* character)
 	string CharacterName = character->GetName();
 	int newattack = character->GetAttack() + 10;
 	character->SetAttack(newattack);
-	cout << character->GetName() << " 이" << name << "을 사용했습니다." << character->GetName() << " 의" << " 공경력: " << character->GetAttack() << endl;
+	cout << character->GetName() << " 이" << name << "을 사용했습니다." << character->GetName() << " 의" << " 공격력: " << character->GetAttack() << endl;
 }
 //주석2
+
+int AttackBoost::GetCount() {
+	return count;
+}
+void AttackBoost::SetCount(int num) {
+	count += num;
+}
