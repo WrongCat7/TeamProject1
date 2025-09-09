@@ -15,11 +15,11 @@ public:
 
 	void UseItem(int index, Character* character);
 
-	void DisplayItems();
+	int DisplayItems();
 
 	void UseRandomItem(Character* character);
 
-	int GetItemCount(Item* item);
+	int GetItemCount();
 
 	void RemoveItem(Item* item);
 

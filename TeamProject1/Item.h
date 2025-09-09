@@ -15,6 +15,8 @@ public:
 	virtual string GetName() = 0;
 	virtual void Use(Character* character) = 0;
 	virtual int GetPrice() = 0;
+	virtual int GetCount() = 0;
+	virtual void SetCount(int num) = 0;
 
 };
 //¡÷ºÆ1
