@@ -1,4 +1,4 @@
-#include "Inventory.h"
+ï»¿#include "Inventory.h"
 #include <iostream>
 #include "Character.h"
 #include "HealthPotion.h"
@@ -28,12 +28,12 @@ void Inventory::DisplayItems()
 {
 	if (items.empty())
 	{
-		cout << "ÀÎº¥Åä¸®¿¡ ¾Æ¹«°Íµµ ¾ø½À´Ï´Ù." << endl;
+		cout << "ì¸ë²¤í† ë¦¬ì— ì•„ë¬´ê²ƒë„ ì—†ìŠµë‹ˆë‹¤." << endl;
 		return;
 	}
 	for (int i = 0; i < items.size(); i++)
 	{
-		cout << i << ": " << items[i]->GetName() << "  " << items[i]->GetPrice() << " °ñµå" << endl;
+		cout << i << ": " << items[i]->GetName() << "  " << items[i]->GetPrice() << " ê³¨ë“œ" << endl;
 	}
 }
 
@@ -41,7 +41,7 @@ void Inventory::UseRandomItem(Character* character)
 {
 	if (items.empty())
 	{
-		cout << "ÀÎº¥Åä¸®°¡ ºñ¾îÀÖ½À´Ï´Ù." << endl;
+		cout << "ì¸ë²¤í† ë¦¬ê°€ ë¹„ì–´ìžˆìŠµë‹ˆë‹¤." << endl;
 		return;
 	}
 
@@ -50,7 +50,7 @@ void Inventory::UseRandomItem(Character* character)
 	if (random < 30)
 	{
 		int index = rand() % items.size();
-		cout << items[index]->GetName() << "ÀÌ 30% È®·ü·Î »ç¿ëµË´Ï´Ù." << endl;
+		cout << items[index]->GetName() << "ì´ 30% í™•ë¥ ë¡œ ì‚¬ìš©ë©ë‹ˆë‹¤." << endl;
 		items[index]->Use(character);
 		delete items[index];
 		items.erase(items.begin() + index);
@@ -58,7 +58,7 @@ void Inventory::UseRandomItem(Character* character)
 
 	else
 	{
-		cout << "¾ÆÀÌÅÛ »ç¿ë¿¡ ½ÇÆÐ Çß½À´Ï´Ù." << endl;
+		cout << "ì•„ì´í…œ ì‚¬ìš©ì— ì‹¤íŒ¨ í–ˆìŠµë‹ˆë‹¤." << endl;
 	}
 }
 
@@ -98,4 +98,4 @@ Item* Inventory::RandomItem()
 
 	return randomitem;
 }
-//ÁÖ¼®1
+//ì£¼ì„1
