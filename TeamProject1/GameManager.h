@@ -11,6 +11,6 @@ private:
 public:
 	GameManager();
 	string PlayerAction();
-	void VisitShop(Character* player);
+	void VisitShop(Character* player, Inventory* inventory);
 	void Battle(Character* player);
 };
