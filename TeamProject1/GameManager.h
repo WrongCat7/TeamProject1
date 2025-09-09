@@ -1,11 +1,16 @@
 #pragma once
-
+class Character;
+class Item;
+class Shop;
+class Monster;
 
 
 class GameManager {
 private:
-	int ActionNum = 0;
-
+	string ActionNUM;
 public:
-	int PlayerAction();
+	GameManager();
+	string PlayerAction();
+	void VisitShop(Character* player);
+	void Battle(Character* player);
 };
