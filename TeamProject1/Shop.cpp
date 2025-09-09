@@ -93,7 +93,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 
 			if (sellnum > 0 && sellnum <= shopitems.size())
 			{
-				SellItem(character, inventory, shopitems[sellnum - 1]);
+				SellItem(character, inventory, shopitems[sellnum - 1]);	//문제 부분
 			}
 		}
 		else if (input == 3)
@@ -112,7 +112,7 @@ void Shop::BuyItem(Character* character, Inventory* inventory, Item* item)
 {
 	if (character->GetGold() >= item->GetPrice())
 	{
-		character->SetGold(character->GetGold() - item->GetPrice());
+		character->SetGold(item->GetPrice() * -1);
 		Item* newItem = nullptr;
 		if (item->GetName() == "HealthPotion")
 			newItem = new HealthPotion();
