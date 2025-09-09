@@ -15,7 +15,7 @@ public:
 	virtual string GetName() = 0;
 	virtual void Use(Character* character) = 0;
 	virtual int GetPrice() = 0;
-	void ItemsName(int choice);
+
 };
 //¡÷ºÆ1
 
