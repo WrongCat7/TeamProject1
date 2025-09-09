@@ -10,6 +10,8 @@ private:
 	string name;
 	int HP;
 	int attack;
+	int experience;
+	int gold;
 
 public:
 	Skeleton(int level);

@@ -3,13 +3,14 @@
 
 class Character;
 class Inventory;
-
 class Orc : public Monster
 {
 private:
 	string name;
 	int HP;
 	int attack;
+	int experience;
+	int gold;
 
 public:
 	Orc(int level);
