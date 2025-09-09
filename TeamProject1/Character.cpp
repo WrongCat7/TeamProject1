@@ -77,7 +77,7 @@ void Character::DisplayStatus() // 캐릭터 상태
 	cout << "공격력 : " << attack << '\n';
 	cout << "경험치 : " << experience << '\n';
 	cout << "보유 골드 : " << gold << '\n';
-	cout << "" << '\n'; // 아이템 보유 현황
+	cout << "" << '\n';
 	cout << "=========================" << '\n';
 }
 
@@ -161,29 +161,3 @@ void Character::SetGold(int gold)
 void Character::SetInventory(Inventory* invnetory) {
 	this->INV = invnetory;
 }
-
-
-/*
-	//캐릭터 글자 수 제한(참고 코드)
-
-int main()
-{
-	const size_t maxnamelength = 10;
-	string charactername;
-
-	cout << "캐릭터 이름을 입력하세요 (최대 " << maxnamelength << "자): ";
-	getline(cin, charactername);
-
-	if (charactername.length() > maxnamelength)
-	{
-		cout << "이름이 너무 깁니다." << maxnamelength << "자 이하로 입력해주세요. \n";
-	}
-	else
-		cout << "입력된 이름 : " << charactername << '\n';
-
-	return 0;
-}
-
-//아이템 사용 함수 확인!
-
-*/
