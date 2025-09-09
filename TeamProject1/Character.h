@@ -2,14 +2,11 @@
 #include <string>
 #include <vector>
 using namespace std;
-
-class Item;
-
+class Inventory;
 class Character
 {
 private:
 
-	Character();
 	Character(string name);
 
 	static Character* instance;
@@ -20,7 +17,7 @@ private:
 	int attack;
 	int experience;
 	int gold;
-	vector <Item*> inventory; // 아이템 클래스 전방선언
+	Inventory* INV;
 
 public:
 
@@ -30,9 +27,6 @@ public:
 	static Character* GetInstance(string = "");
 	void DisplayStatus();
 	void LevelUp();
-	void UseItem(int index);
-	void AddGold(int amount);
-	void SpendGold(int amount);
 	void TakeDamage(int damage);
 	bool IsDead();
 
@@ -44,6 +38,7 @@ public:
 	int GetAttack();
 	int GetExperience();
 	int GetGold() const;
+	Inventory* GetInventory() const;
 
 	//setter
 	void SetName(string name);
@@ -53,5 +48,6 @@ public:
 	void SetAttack(int attack);
 	void SetExprience(int experience);
 	void SetGold(int gold);
+	void SetInventory(Inventory* inventory);
 };
 
