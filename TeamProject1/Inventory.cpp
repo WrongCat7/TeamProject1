@@ -64,15 +64,7 @@ void Inventory::UseRandomItem(Character* character)
 
 int Inventory::GetItemCount(Item* item)
 {
-	int count = 0;
-	for (auto& i : items)
-	{
-		if (i->GetName() == item->GetName())
-		{
-			count++;
-		}
-	}
-	return count;
+	return items.size();
 }
 
 void Inventory::RemoveItem(Item* item)
