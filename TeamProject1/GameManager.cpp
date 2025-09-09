@@ -66,6 +66,9 @@ Monster* GenerateMonster(int level) {
 		}
 		return m;
 }
+
+
+
 void GameManager::Battle(Character* player) {
 	Monster* monster = GenerateMonster(player->GetLevel());
 	cout << "몬스터 " << monster->GetName() << "등장! 체력: " << monster->GetHP() << "공격력: " << monster->GetAttack() << endl;
@@ -95,17 +98,20 @@ void GameManager::Battle(Character* player) {
 			}
 		}
 }
-void GameManager::VisitShop(Character* player) {
-	Shop* shop = new Shop;
-	Inventory* INV = new Inventory;
-	shop->ShowItems(INV, player);
-	delete shop;
-	delete INV;
-	shop = nullptr;
-	INV = nullptr;
+void GameManager::VisitShop(Character* player, Inventory* inventory) {
+	//Shop* shop = new Shop;
+	//Inventory* INV = new Inventory;
+	//shop->ShowItems(INV, player);
+	//delete shop;
+	//delete INV;
+	//shop = nullptr;
+	//INV = nullptr;
+	Shop shop;
+	shop.ShowItems(inventory, player);
 }
 
 int main() {
+	Inventory playerInventory;
 	string nickname = "";
 	GameManager* GM = new GameManager;
 	cout << "닉네임을 입력해주세요: ";
@@ -129,21 +135,19 @@ int main() {
 				//스테이터스
 			}
 			else if (SNUM == "2") {//아이템 사용
-				Inventory* INV = new Inventory;
+				
 				int actionNUM;
 				cout << "\n"
 					<< "======================================\n"
 					<< "인벤토리\n"
 					<< "--------------------------------------" << endl;
-				INV->DisplayItems();
+				playerInventory.DisplayItems();
 				cout << "======================================" << endl;
 				cin >> actionNUM;
-				INV->UseItem(actionNUM, player);
-				delete INV;
-				INV = nullptr;
+				playerInventory.UseItem(actionNUM, player);
 			}
 			else if (SNUM == "3") {
-				GM->VisitShop(player);//상점
+				GM->VisitShop(player, &playerInventory);//상점
 			}
 			else if (SNUM == "4") {
 				GM->Battle(player);//전투시작
