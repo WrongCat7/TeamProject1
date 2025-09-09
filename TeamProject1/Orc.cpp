@@ -37,10 +37,25 @@ int Orc::GetAttack()
 	return attack;
 }
 
+int Orc::GetExperience()
+{
+	int experience = 50;
+	return experience;
+}
+
+int Orc::GetGold()
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> randomgold(10, 20);
+	return randomgold(gen);
+}
 
 void Orc::TakeDamage(int damage)
 {
 	HP -= damage;
+	if (HP < 0) HP = 0;
+	cout << name << " 체력: " << HP << endl;
 }
 
 bool  Orc::IsDead() // 사망 여부 확인을 위한 함수

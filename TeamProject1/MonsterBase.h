@@ -15,10 +15,12 @@ public:
 	virtual string GetName() = 0;
 	virtual int GetHP() = 0;
 	virtual int GetAttack() = 0;
+	virtual int GetExperience() = 0;
+	virtual int GetGold() = 0;
+
 
 	// 행동 함수
 	virtual void TakeDamage(int damage) = 0;
 	virtual bool IsDead() = 0;
 	virtual void DropItem(Inventory* inventory) = 0;
-	int RandomGold();
 };

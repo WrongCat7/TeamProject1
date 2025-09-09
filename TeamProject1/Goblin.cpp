@@ -37,6 +37,19 @@ int Goblin::GetAttack()
 	return attack;
 }
 
+int Goblin::GetExperience()
+{
+	int experience = 50;
+	return experience;
+}
+
+int Goblin::GetGold()
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> randomgold(10, 20);
+	return randomgold(gen);
+}
 
 void Goblin::TakeDamage(int damage)
 {
