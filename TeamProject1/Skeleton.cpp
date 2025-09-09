@@ -41,8 +41,6 @@ int Skeleton::GetAttack()
 void Skeleton::TakeDamage(int damage)
 {
 	HP -= damage;
-	if (HP < 0) HP = 0;
-	cout << name << " 체력: " << HP << endl;
 }
 
 bool  Skeleton::IsDead() // 사망 여부 확인을 위한 함수
