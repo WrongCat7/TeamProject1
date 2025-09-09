@@ -1,7 +1,7 @@
 ﻿#pragma once
+#include "Item.h"
 
 class Character;
-class Item;
 class HealthPotion :
     public Item
 {
