@@ -44,8 +44,8 @@ void Inventory::AddItem(Item* item)
 
 void Inventory::UseItem(int index, Character* character)
 {
-	if (index < items.size()) {
-		if (items[index - 1]->GetCount() > 0) {
+	if (index > 0) {
+		if (index-1 < items.size()) {
 			items[index - 1]->Use(character);
 			items[index - 1]->SetCount(-1);
 			if (items[index - 1]->GetCount() < 1) {
