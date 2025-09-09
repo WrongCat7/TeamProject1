@@ -26,6 +26,11 @@ void Inventory::UseItem(int index, Character* character)
 
 void Inventory::DisplayItems()
 {
+	if (items.empty())
+	{
+		cout << "인벤토리에 아무것도 없습니다." << endl;
+		return;
+	}
 	for (int i = 0; i < items.size(); i++)
 	{
 		cout << i << ": " << items[i]->GetName() << "  " << items[i]->GetPrice() << " 골드" << endl;
