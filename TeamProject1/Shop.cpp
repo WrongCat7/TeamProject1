@@ -91,7 +91,12 @@ void Shop::BuyItem(Character* character, Inventory* inventory, Item* item)
 	if (character->GetGold() >= item->GetPrice())
 	{
 		character->SetGold(character->GetGold() - item->GetPrice());
-		inventory->AddItem(item);
+		Item* newItem = nullptr;
+		if (item->GetName() == "HealthPotion")
+			newItem = new HealthPotion();
+		else if (item->GetName() == "AttackBoost")
+			newItem = new AttackBoost();
+		inventory->AddItem(newItem);
 		cout << item->GetName() << " 구매 완료!" << endl;
 	}
 	else
@@ -102,7 +107,7 @@ void Shop::BuyItem(Character* character, Inventory* inventory, Item* item)
 
 void Shop::SellItem(Character* character, Inventory* inventory, Item* item)
 {
-	if (inventory->GetItemCount(item) > 0)
+	if (inventory->GetItemCount() > 0)
 	{
 		character->SetGold(character->GetGold() + item->GetPrice());
 		inventory->RemoveItem(item);
@@ -113,3 +118,4 @@ void Shop::SellItem(Character* character, Inventory* inventory, Item* item)
 		cout << "판매할 아이템이 없습니다!" << endl;
 	}
 }
+
