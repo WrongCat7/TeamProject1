@@ -129,12 +129,26 @@ int main() {
 	cout << "닉네임을 입력해주세요: ";
 	while (true)
 	{
-		cin >> nickname;
+		int boolcheck = 0;
+		getline(cin, nickname);
 		if (nickname == "") {
-			cout << "입력을 하지 않았습니다. 입력해주세요: ";
-			nickname = "";
+			system("cls");
+			cout << "입력을 하지 않았습니다.\n닉네임을 다시 입력해주세요: ";
+			continue;
 		}
-		else break;
+		else {
+			for (char c : nickname) {
+				if (c == ' ') {
+					system("cls");
+					cout << "공백이 있습니다.\n닉네임을 다시 입력해주세요: ";
+					boolcheck = 1;
+					break;
+				}
+			}
+		}
+		if (boolcheck == 0) {
+			break;
+		}
 	}
 	Character* player = Character::GetInstance(nickname);
 	cout << "환영합니다 " << player->GetName() << "님!" << endl;
