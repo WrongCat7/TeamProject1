@@ -37,6 +37,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 		cout << "3. 상점 나가기" << endl;
 		cout << "----------------" << endl;
 		cout << "----------------" << endl;
+		cout << "번호를 입력해주세요 : ";
 		cin >> input;
 
 		if (input == 1)
@@ -49,18 +50,18 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 				cout << (i + 1) << ":" << shopitems[i]->GetName()
 					<< " " << shopitems[i]->GetPrice() << " 골드" << endl;
 			}
+			cout << shopitems.size() + 1 << ": 뒤로가기" << endl;
 			cout << "-------------------------" << endl;
 			cout << "-------------------------" << endl;
-
 			int buynum;
-			cout << "번호를 입력하세요 (취소 0) : " << endl;
+			cout << "번호를 입력하세요 : ";
 			cin >> buynum;
 			cout << "-------------------------" << endl;
 			cout << "-------------------------" << endl;
 
-			if (buynum == shopitems.size())
+			if (buynum == shopitems.size() + 1)
 			{
-				return;
+				continue;
 			}
 
 			if (buynum > 0 && buynum <= shopitems.size())
@@ -83,17 +84,24 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 
 			inventory->DisplayItems();
 			int sellnum;
-			cout << "번호를 입력하세요 (취소 0) : " << endl;
+			cout << "번호를 입력하세요 : ";
 			cin >> sellnum;
 
-			if (sellnum > shopitems.size())
+			if (sellnum == inventory->GetItemCount() + 1)
 			{
-				return;
+				continue;
 			}
 
-			if (sellnum > 0 && sellnum <= shopitems.size())
+			if (sellnum < 1 || sellnum > inventory->GetItemCount())
 			{
-				SellItem(character, inventory, shopitems[sellnum - 1]);	//문제 부분
+				cout << "잘못된 번호입니다." << endl;
+				system("pause");
+				continue;
+			}
+			Item* item = inventory->GetItem(sellnum - 1);
+			if (item != nullptr)
+			{
+				SellItem(character, inventory, item);
 			}
 		}
 		else if (input == 3)
@@ -102,7 +110,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 		}
 		else
 		{
-			cout << "잘못된 입력입니다. 1~" << shopitems.size() << " 번 중에서 골라주세요." << endl;
+			cout << "잘못된 입력입니다. 1 ~ 3 번 중에서 골라주세요." << endl;
 		}
 
 		system("pause");
@@ -112,7 +120,7 @@ void Shop::BuyItem(Character* character, Inventory* inventory, Item* item)
 {
 	if (character->GetGold() >= item->GetPrice())
 	{
-		character->SetGold(item->GetPrice() * -1);
+		character->SetGold(-item->GetPrice());
 		Item* newItem = nullptr;
 		if (item->GetName() == "HealthPotion")
 			newItem = new HealthPotion();
@@ -132,9 +140,14 @@ void Shop::SellItem(Character* character, Inventory* inventory, Item* item)
 	if (inventory->GetItemCount() > 0)
 	{
 		string itemname = item->GetName();
-		character->SetGold(item->GetPrice());
-		inventory->RemoveItem(item);
-		cout << item->GetName() << " 판매 완료! (+" << item->GetPrice() << " 골드)" << endl;
+		int price = item->GetPrice();
+		character->SetGold(price);
+		item->SetCount(-1);
+		if (item->GetCount() <= 0)
+		{
+			inventory->RemoveItem(item);
+		}
+		cout << itemname << " 판매 완료! (+" << price << " 골드)" << endl;
 	}
 	else
 	{
