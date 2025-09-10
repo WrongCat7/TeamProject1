@@ -11,6 +11,7 @@
 #include "AttackBoost.h"
 #include "GameManager.h"
 #include "Image.h"   ////    수정2    ////
+#include "Melody.h"
 #include <vector>
 #include <iostream>
 #include <random>
@@ -159,15 +160,22 @@ int main() {
 					<< "인벤토리\n"
 					<< "--------------------------------------" << endl;
 
-				playerInventory.DisplayItems();
+				int noItem = playerInventory.DisplayItems(); ////   수정3    ////
 
 				cout << "======================================" << endl;
-				cout << "아이템의 번호를 입력해주세요: ";
-				cin >> actionNUM;
-				playerInventory.UseItem(actionNUM, player);
+				if (noItem == 1) ////   수정3    ////
+				{
+					system("pause");
+				}
+				else
+				{
+					cout << "아이템의 번호를 입력해주세요: ";
+					cin >> actionNUM;
+					playerInventory.UseItem(actionNUM, player);
 
-				cout << "======================================" << endl;
-				system("pause"); ////   수정한 부분    ////
+					cout << "======================================" << endl;
+					system("pause"); ////   수정한 부분    ////
+				}
 			}
 			else if (SNUM == "3") {
 				bgm.ShopInBGM();
