@@ -10,7 +10,6 @@
 #include <vector>
 using namespace std;
 
-
 void Inventory::AddItem(Item* item)
 {
 	int boolcheck = 0;
@@ -45,7 +44,7 @@ void Inventory::AddItem(Item* item)
 void Inventory::UseItem(int index, Character* character)
 {
 	if (index > 0) {
-		if (index-1 < items.size()) {
+		if (index - 1 < items.size()) {
 			items[index - 1]->Use(character);
 			items[index - 1]->SetCount(-1);
 			if (items[index - 1]->GetCount() < 1) {
@@ -64,7 +63,7 @@ int Inventory::DisplayItems()
 	}
 	for (int i = 0; i < items.size(); i++)
 	{
-		cout << i+1 << ": " << items[i]->GetName() << "  " << items[i]->GetCount()<<"개 " << items[i]->GetPrice() << " 골드" << endl;
+		cout << i + 1 << ": " << items[i]->GetName() << "  " << items[i]->GetCount() << "개 " << items[i]->GetPrice() << " 골드" << endl;
 	}
 	cout << items.size() + 1 << ": 뒤로가기" << endl;
 	return 0;
@@ -133,4 +132,9 @@ Item* Inventory::RandomItem()
 	delete randomitem;
 	randomitem = nullptr;
 }
-//주석1
+Item* Inventory::GetItem(int index)
+{
+	if (index < 0 || index >= items.size())
+		return nullptr;
+	return items[index];
+}
