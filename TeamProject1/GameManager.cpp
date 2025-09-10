@@ -121,6 +121,7 @@ void GameManager::VisitShop(Character* player, Inventory* inventory) {
 }
 
 int main() {
+	Melody bgm;
 	Inventory playerInventory;
 	string nickname = "";
 	GameManager* GM = new GameManager;
@@ -169,9 +170,11 @@ int main() {
 				system("pause"); ////   수정한 부분    ////
 			}
 			else if (SNUM == "3") {
+				bgm.ShopInBGM();
 				GM->VisitShop(player, &playerInventory);//상점
 			}
 			else if (SNUM == "4") {
+				bgm.BattelBGM();
 				system("cls"); ////   수정한 부분    ////
 				GM->Battle(player);//전투시작
 				if (player->IsDead() == 1) return 0;
