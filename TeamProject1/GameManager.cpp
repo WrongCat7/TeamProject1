@@ -11,6 +11,7 @@
 #include "AttackBoost.h"
 #include "GameManager.h"
 #include "Image.h"   ////    ¼öÁ¤2    ////
+#include "Melody.h"
 #include <vector>
 #include <iostream>
 #include <random>
