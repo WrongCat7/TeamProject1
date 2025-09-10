@@ -4,13 +4,13 @@
 
 class Character;
 
-class Inventory 
+class Inventory
 {
 private:
 	vector<Item*> items;
 
 public:
-	
+
 	void AddItem(Item* item);
 
 	void UseItem(int index, Character* character);
@@ -24,5 +24,7 @@ public:
 	void RemoveItem(Item* item);
 
 	Item* RandomItem();
+
+	Item* GetItem(int index);
 };
 //¡÷ºÆ2
