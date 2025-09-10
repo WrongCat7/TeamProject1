@@ -10,6 +10,7 @@
 #include "HealthPotion.h"
 #include "AttackBoost.h"
 #include "GameManager.h"
+#include "Image.h"   ////    수정2    ////
 #include <vector>
 #include <iostream>
 #include <random>
@@ -71,10 +72,15 @@ Monster* GenerateMonster(int level) {
 
 void GameManager::Battle(Character* player) {
 	Monster* monster = GenerateMonster(player->GetLevel());
+	Image imageManager;     ////    수정2    ////
+
+	imageManager.ShowImage(monster->GetName());     ////    수정2    ////
+
 	cout << "몬스터 " << monster->GetName() << "등장! 체력: " << monster->GetHP() << "공격력: " << monster->GetAttack() << endl;
 		while(true){
 			monster->TakeDamage(player->GetAttack());
-			if (monster->IsDead() == 1) {
+			if (monster->IsDead() == 1) 
+			{
 				cout << player->GetName() << "이(가) 공격합니다! " << monster->GetName() << " 처치!" << endl;
 				player->SetExprience(50);
 				player->SetGold(monster->GetGold());
@@ -84,11 +90,13 @@ void GameManager::Battle(Character* player) {
 				monster = nullptr;
 				break;
 			}
-			else {
+			else 
+			{
 				cout << player->GetName() << "이(가) " << monster->GetName() << "를 공격합니다!" << monster->GetName() << " 체력: " << monster->GetHP() << endl;
 			}
 			monster->TakeDamage(player->GetAttack());
-			if (player->IsDead() == 1) {
+			if (player->IsDead() == 1)
+			{
 				cout << monster->GetName() << "이(가) 공격합니다! " << player->GetName() << " 체력: " << player -> GetHP() << " -> 0" << endl;
 				cout << player->GetName() <<"가 사망했습니다. 게임 오버!" << endl;
 				delete monster;
@@ -131,11 +139,14 @@ int main() {
 	cout << "기본 소지금 지급(15G)" << endl;
 	while (true) {
 		system("cls"); ////   수정한 부분    ////
+		Image imageManager;     ////    수정2    ////
+
+		imageManager.ShowImage("제목");     ////    수정2    ////
 		string SNUM = GM->PlayerAction();
 			if (SNUM == "1") {
 				system("cls"); ////   수정한 부분    ////
 				player->DisplayStatus();
-				cout << player->GetExperience() << endl;
+				//cout << player->GetExperience() << endl;
 				//스테이터스
 				system("pause"); ////   수정한 부분    ////
 			}
