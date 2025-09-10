@@ -135,7 +135,6 @@ int main() {
 			if (SNUM == "1") {
 				system("cls"); ////   수정한 부분    ////
 				player->DisplayStatus();
-				cout << player->GetExperience() << endl;
 				//스테이터스
 				system("pause"); ////   수정한 부분    ////
 			}
