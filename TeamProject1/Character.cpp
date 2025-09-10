@@ -36,8 +36,7 @@ void Character::LevelUp() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 			this->attack += (level * 5);
 			this->experience = 0;
 
-			cout << "축하합니다. 레벨업하였습니다!" << '\n';
-			cout << "현재 레벨 : " << level << '\n';
+			cout << "축하합니다. 레벨업하였습니다! 현재 레벨 : " << level << endl;
 		}
 	}
 	else
