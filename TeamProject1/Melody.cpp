@@ -51,3 +51,4 @@ void Melody::BattelBGM()
 		Beep(melody[i], speed[i]);
 	}
 }
+//1
