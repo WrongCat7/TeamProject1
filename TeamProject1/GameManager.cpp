@@ -130,33 +130,41 @@ int main() {
 	cout << "환영합니다 " << player->GetName() << "님!" << endl;
 	cout << "기본 소지금 지급(15G)" << endl;
 	while (true) {
+		system("cls"); ////   수정한 부분    ////
 		string SNUM = GM->PlayerAction();
 			if (SNUM == "1") {
+				system("cls"); ////   수정한 부분    ////
 				player->DisplayStatus();
 				cout << player->GetExperience() << endl;
 				//스테이터스
+				system("pause"); ////   수정한 부분    ////
 			}
 			else if (SNUM == "2") {//아이템 사용
-				
+				system("cls"); ////   수정한 부분    ////
 				int actionNUM;
 				cout << "\n"
 					<< "======================================\n"
 					<< "인벤토리\n"
 					<< "--------------------------------------" << endl;
-				if(playerInventory.DisplayItems() == 0){
+
+				playerInventory.DisplayItems();
+
 				cout << "======================================" << endl;
 				cout << "아이템의 번호를 입력해주세요: ";
 				cin >> actionNUM;
 				playerInventory.UseItem(actionNUM, player);
-				}
+
 				cout << "======================================" << endl;
+				system("pause"); ////   수정한 부분    ////
 			}
 			else if (SNUM == "3") {
 				GM->VisitShop(player, &playerInventory);//상점
 			}
 			else if (SNUM == "4") {
+				system("cls"); ////   수정한 부분    ////
 				GM->Battle(player);//전투시작
 				if (player->IsDead() == 1) return 0;
+				system("pause"); ////   수정한 부분    ////
 			}
 			else if (SNUM == "5") {
 				cout << "프로그램을 종료합니다" << endl;
