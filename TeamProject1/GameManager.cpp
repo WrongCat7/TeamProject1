@@ -190,6 +190,7 @@ int main() {
 			}
 			else if (SNUM == "5") {
 				cout << "프로그램을 종료합니다" << endl;
+				return 0;
 			}
 			else cout << "잘못된 선택입니다. 다시 입력해주세요" << endl;
 			if (player->GetLevel() == 10) {
