@@ -64,10 +64,16 @@ C++로 만든 텍스트 기반 RPG 게임입니다.
 
 ## 💻 구조 및 진행흐름
 <details>
+<summary>클릭해서 보기</summary>
+
+<details>
 <summary>게임 시작</summary>
 
 - 닉네임 입력
 - 메인화면
+
+</details>
+
 <details>
 <summary>스테이터스</summary>
 
