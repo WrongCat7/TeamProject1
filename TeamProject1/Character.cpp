@@ -35,6 +35,9 @@ void Character::LevelUp() // 레벨업 할 경우 능력치 상승 및 체력 100% 회복
 			this->HP = maxHP;
 			this->attack += (level * 5);
 			this->experience = 0;
+
+			cout << "축하합니다. 레벨업하였습니다!" << '\n';
+			cout << "현재 레벨 : " << level << '\n';
 		}
 	}
 	else
@@ -77,7 +80,6 @@ void Character::DisplayStatus() // 캐릭터 상태
 	cout << "공격력 : " << attack << '\n';
 	cout << "경험치 : " << experience << '\n';
 	cout << "보유 골드 : " << gold << '\n';
-	cout << "" << '\n';
 	cout << "=========================" << '\n';
 }
 
