@@ -4,8 +4,11 @@
 #include "Inventory.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
+#include "Melody.h"
+
 using namespace std;
 
+Melody melody;
 
 Shop::Shop()
 {
@@ -28,6 +31,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 
 	while (true)
 	{
+		Melody bgm;
 		system("cls");
 		cout << "----- 상점 -----" << endl;
 		cout << "----------------" << endl;
@@ -106,6 +110,7 @@ void Shop::ShowItems(Inventory* inventory, Character* character)
 		}
 		else if (input == 3)
 		{
+			bgm.ShopOutBGM();
 			return;
 		}
 		else
@@ -127,7 +132,10 @@ void Shop::BuyItem(Character* character, Inventory* inventory, Item* item)
 		else if (item->GetName() == "AttackBoost")
 			newItem = new AttackBoost();
 		inventory->AddItem(newItem);
+		melody.BuySellMelody();	//구매 브금
 		cout << item->GetName() << " 구매 완료!" << endl;
+
+
 	}
 	else
 	{
@@ -147,6 +155,7 @@ void Shop::SellItem(Character* character, Inventory* inventory, Item* item)
 		{
 			inventory->RemoveItem(item);
 		}
+		melody.BuySellMelody();
 		cout << itemname << " 판매 완료! (+" << price << " 골드)" << endl;
 	}
 	else
