@@ -29,7 +29,7 @@ C++로 만든 텍스트 기반 RPG 게임입니다.
 
 **소개 영상**
 
-[![유튜브 링크](https://img.youtube.com/vi/-RFL2l23sdU/0.jpg)](https://youtu.be/-RFL2l23sdU)
+[![유튜브 링크](https://img.youtube.com/vi/kVZYAlOjymE/0.jpg)](https://youtu.be/kVZYAlOjymE)
 
 </details>
 
@@ -127,6 +127,7 @@ C++로 만든 텍스트 기반 RPG 게임입니다.
 
 게임 종료
 
+</details>
 </details>
 
 ---
