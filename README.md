@@ -28,7 +28,7 @@ C++로 만든 텍스트 기반 RPG 게임입니다.
 **목표:** 레벨 10에 도달하면 게임 승리!
 
 **소개 영상**
-![유튜브 링크](https://youtu.be/-RFL2l23sdU/0.jpg)(https://youtu.be/-RFL2l23sdU)
+[![유튜브 링크](https://youtu.be/-RFL2l23sdU/0.jpg)](https://youtu.be/-RFL2l23sdU)
 
 </details>
 
