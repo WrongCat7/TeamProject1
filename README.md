@@ -150,6 +150,7 @@ C++로 만든 텍스트 기반 RPG 게임입니다.
 ## 💻 개발 환경
 <details>
 <summary>클릭해서 보기</summary>
+
 - **언어**: C++  
 - **IDE**: Visual Studio / Visual Studio Code  
 - **플랫폼**: Windows (CLI 기반)  
@@ -160,10 +161,7 @@ C++로 만든 텍스트 기반 RPG 게임입니다.
 ## 🚀 실행 방법
 <details>
 <summary>클릭해서 보기</summary>
-```bash
 
 - Visual studio에서 시작하기
 - 시작 후 UI의 가이드에 따라서 숫자 입력
 </details>
-
----
