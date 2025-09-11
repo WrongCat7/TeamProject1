@@ -2,7 +2,7 @@
 *
 
 !.gitignore
-
+!README.md
 # 단, 하위 폴더 포함 모든 cpp, h 파일 예외
 !**/*.cpp
 !**/*.h
