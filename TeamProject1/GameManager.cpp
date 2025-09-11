@@ -11,7 +11,6 @@
 #include "AttackBoost.h"
 #include "GameManager.h"
 #include "Image.h"   ////    수정2    ////
-#include "Melody.h"
 #include <vector>
 #include <iostream>
 #include <random>
@@ -122,42 +121,27 @@ void GameManager::VisitShop(Character* player, Inventory* inventory) {
 }
 
 int main() {
-	Melody bgm;
 	Inventory playerInventory;
 	string nickname = "";
 	GameManager* GM = new GameManager;
 	cout << "닉네임을 입력해주세요: ";
 	while (true)
 	{
-		int boolcheck = 0;
-		getline(cin, nickname);
+		cin >> nickname;
 		if (nickname == "") {
-			system("cls");
-			cout << "입력을 하지 않았습니다.\n닉네임을 다시 입력해주세요: ";
-			continue;
+			cout << "입력을 하지 않았습니다. 입력해주세요: ";
+			nickname = "";
 		}
-		else {
-			for (char c : nickname) {
-				if (c == ' ') {
-					system("cls");
-					cout << "공백이 있습니다.\n닉네임을 다시 입력해주세요: ";
-					boolcheck = 1;
-					break;
-				}
-			}
-		}
-		if (boolcheck == 0) {
-			break;
-		}
+		else break;
 	}
 	Character* player = Character::GetInstance(nickname);
 	cout << "환영합니다 " << player->GetName() << "님!" << endl;
 	cout << "기본 소지금 지급(15G)" << endl;
 	while (true) {
 		system("cls"); ////   수정한 부분    ////
-		Image imageManager;     ////    수정2    ////
+		Image images;     ////    수정2    ////
 
-		imageManager.ShowImage("제목");     ////    수정2    ////
+		images.ShowImage("제목");     ////    수정2    ////
 		string SNUM = GM->PlayerAction();
 			if (SNUM == "1") {
 				system("cls"); ////   수정한 부분    ////
@@ -168,6 +152,7 @@ int main() {
 			}
 			else if (SNUM == "2") {//아이템 사용
 				system("cls"); ////   수정한 부분    ////
+				images.ShowImage("가방");     ////   수정4    ////
 				int actionNUM;
 				cout << "\n"
 					<< "======================================\n"
@@ -192,11 +177,9 @@ int main() {
 				}
 			}
 			else if (SNUM == "3") {
-				bgm.ShopInBGM();
 				GM->VisitShop(player, &playerInventory);//상점
 			}
 			else if (SNUM == "4") {
-				bgm.BattelBGM();
 				system("cls"); ////   수정한 부분    ////
 				GM->Battle(player);//전투시작
 				if (player->IsDead() == 1) return 0;
@@ -204,7 +187,6 @@ int main() {
 			}
 			else if (SNUM == "5") {
 				cout << "프로그램을 종료합니다" << endl;
-				return 0;
 			}
 			else cout << "잘못된 선택입니다. 다시 입력해주세요" << endl;
 			if (player->GetLevel() == 10) {
