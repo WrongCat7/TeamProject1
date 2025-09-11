@@ -74,6 +74,7 @@ Monster* GenerateMonster(int level) {
 void GameManager::Battle(Character* player) {
 	Monster* monster = GenerateMonster(player->GetLevel());
 	Image imageManager;     ////    수정2    ////
+	Inventory inventory;    ////    수정5    ////
 
 	imageManager.ShowImage(monster->GetName());     ////    수정2    ////
 
@@ -87,6 +88,7 @@ void GameManager::Battle(Character* player) {
 				player->SetGold(monster->GetGold());
 				cout << player->GetName() << "이(가) 50 EXP와 " << monster->GetGold() << "골드를 획득했습니다. "
 					<< "현재 EXP: " << player->GetExperience() << "/100, 골드: " << player->GetGold() << endl;
+				monster->DropItem(player, &inventory);     ////    수정5    ////
 				delete monster;
 				monster = nullptr;
 				break;
