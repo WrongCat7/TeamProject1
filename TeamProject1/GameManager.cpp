@@ -1,4 +1,4 @@
-#include "MonsterBase.h"
+﻿#include "MonsterBase.h"
 #include "Shop.h"
 #include "Orc.h"
 #include "Skeleton.h"
@@ -83,7 +83,7 @@ void GameManager::Battle(Character* player) {
 			if (monster->IsDead() == 1) 
 			{
 				cout << player->GetName() << "이(가) 공격합니다! " << monster->GetName() << " 처치!" << endl;
-				player->SetExperience(50);
+				player->SetExprience(50);
 				player->SetGold(monster->GetGold());
 				cout << player->GetName() << "이(가) 50 EXP와 " << monster->GetGold() << "골드를 획득했습니다. "
 					<< "현재 EXP: " << player->GetExperience() << "/100, 골드: " << player->GetGold() << endl;
