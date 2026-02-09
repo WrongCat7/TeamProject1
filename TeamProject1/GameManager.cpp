@@ -10,7 +10,7 @@
 #include "HealthPotion.h"
 #include "AttackBoost.h"
 #include "GameManager.h"
-#include "Image.h"   ////    ¼öÁ¤2    ////
+#include "Image.h"   ////    ìˆ˜ì •2    ////
 #include <vector>
 #include <iostream>
 #include <random>
@@ -26,15 +26,15 @@ string GameManager::PlayerAction() {
 	ActionNUM = "";
 	cout << "\n"
 		<< "======================================\n"
-		<< "Çàµ¿ ¼±ÅÃÃ¢\n"
+		<< "í–‰ë™ ì„ íƒì°½\n"
 		<< "======================================\n"
-		<< "1. ½ºÅ×ÀÌÅÍ½º È®ÀÎ\n"
-		<< "2. ¾ÆÀÌÅÛ »ç¿ëÇÏ±â\n"
-		<< "3. »óÁ¡ ¿­±â\n"
-		<< "4. ÀüÅõ ½ÃÀÛ\n"
-		<< "5. °ÔÀÓ Á¾·á\n"
+		<< "1. ìŠ¤í…Œì´í„°ìŠ¤ í™•ì¸\n"
+		<< "2. ì•„ì´í…œ ì‚¬ìš©í•˜ê¸°\n"
+		<< "3. ìƒì  ì—´ê¸°\n"
+		<< "4. ì „íˆ¬ ì‹œì‘\n"
+		<< "5. ê²Œì„ ì¢…ë£Œ\n"
 		<< "--------------------------------------" << endl
-		<< "Çàµ¿À» ¼±ÅÃÇØÁÖ¼¼¿ä: ";
+		<< "í–‰ë™ì„ ì„ íƒí•´ì£¼ì„¸ìš”: ";
 	cin >> ActionNUM;
 	cout << "======================================" << endl;
 	return ActionNUM;
@@ -43,8 +43,8 @@ vector<Monster*> monsters;
 
 Monster* GenerateMonster(int level) {
 	Monster* m = nullptr;
-	std::random_device rd;  // ½Ãµå »ı¼º
-	std::mt19937 gen(rd()); // Mersenne Twister ¿£Áø
+	std::random_device rd;  // ì‹œë“œ ìƒì„±
+	std::mt19937 gen(rd()); // Mersenne Twister ì—”ì§„
 	uniform_int_distribution<int> dist(1, 4);
 	int i = dist(gen);
 		switch (i) {
@@ -72,41 +72,41 @@ Monster* GenerateMonster(int level) {
 
 void GameManager::Battle(Character* player) {
 	Monster* monster = GenerateMonster(player->GetLevel());
-	Image imageManager;     ////    ¼öÁ¤2    ////
-	Inventory inventory;    ////    ¼öÁ¤5    ////
+	Image imageManager;     ////    ìˆ˜ì •2    ////
+	Inventory inventory;    ////    ìˆ˜ì •5    ////
 
-	imageManager.ShowImage(monster->GetName());     ////    ¼öÁ¤2    ////
+	imageManager.ShowImage(monster->GetName());     ////    ìˆ˜ì •2    ////
 
-	cout << "¸ó½ºÅÍ " << monster->GetName() << "µîÀå! Ã¼·Â: " << monster->GetHP() << "°ø°İ·Â: " << monster->GetAttack() << endl;
+	cout << "ëª¬ìŠ¤í„° " << monster->GetName() << "ë“±ì¥! ì²´ë ¥: " << monster->GetHP() << "ê³µê²©ë ¥: " << monster->GetAttack() << endl;
 		while(true){
 			monster->TakeDamage(player->GetAttack());
 			if (monster->IsDead() == 1) 
 			{
-				cout << player->GetName() << "ÀÌ(°¡) °ø°İÇÕ´Ï´Ù! " << monster->GetName() << " Ã³Ä¡!" << endl;
-				player->SetExprience(50);
+				cout << player->GetName() << "ì´(ê°€) ê³µê²©í•©ë‹ˆë‹¤! " << monster->GetName() << " ì²˜ì¹˜!" << endl;
+				player->SetExperience(50);
 				player->SetGold(monster->GetGold());
-				cout << player->GetName() << "ÀÌ(°¡) 50 EXP¿Í " << monster->GetGold() << "°ñµå¸¦ È¹µæÇß½À´Ï´Ù. "
-					<< "ÇöÀç EXP: " << player->GetExperience() << "/100, °ñµå: " << player->GetGold() << endl;
-				monster->DropItem(player, &inventory);     ////    ¼öÁ¤5    ////
+				cout << player->GetName() << "ì´(ê°€) 50 EXPì™€ " << monster->GetGold() << "ê³¨ë“œë¥¼ íšë“í–ˆìŠµë‹ˆë‹¤. "
+					<< "í˜„ì¬ EXP: " << player->GetExperience() << "/100, ê³¨ë“œ: " << player->GetGold() << endl;
+				monster->DropItem(player, &inventory);     ////    ìˆ˜ì •5    ////
 				delete monster;
 				monster = nullptr;
 				break;
 			}
 			else 
 			{
-				cout << player->GetName() << "ÀÌ(°¡) " << monster->GetName() << "¸¦ °ø°İÇÕ´Ï´Ù!" << monster->GetName() << " Ã¼·Â: " << monster->GetHP() << endl;
+				cout << player->GetName() << "ì´(ê°€) " << monster->GetName() << "ë¥¼ ê³µê²©í•©ë‹ˆë‹¤!" << monster->GetName() << " ì²´ë ¥: " << monster->GetHP() << endl;
 			}
 			monster->TakeDamage(player->GetAttack());
 			if (player->IsDead() == 1)
 			{
-				cout << monster->GetName() << "ÀÌ(°¡) °ø°İÇÕ´Ï´Ù! " << player->GetName() << " Ã¼·Â: " << player -> GetHP() << " -> 0" << endl;
-				cout << player->GetName() <<"°¡ »ç¸ÁÇß½À´Ï´Ù. °ÔÀÓ ¿À¹ö!" << endl;
+				cout << monster->GetName() << "ì´(ê°€) ê³µê²©í•©ë‹ˆë‹¤! " << player->GetName() << " ì²´ë ¥: " << player -> GetHP() << " -> 0" << endl;
+				cout << player->GetName() <<"ê°€ ì‚¬ë§í–ˆìŠµë‹ˆë‹¤. ê²Œì„ ì˜¤ë²„!" << endl;
 				delete monster;
 				monster = nullptr;
 				break;
 			}
 			else {
-				cout << monster->GetName() << "ÀÌ(°¡) " << player->GetName() << "¸¦ °ø°İÇÕ´Ï´Ù!" << player->GetName() << " Ã¼·Â: " << player->GetHP() << endl;
+				cout << monster->GetName() << "ì´(ê°€) " << player->GetName() << "ë¥¼ ê³µê²©í•©ë‹ˆë‹¤!" << player->GetName() << " ì²´ë ¥: " << player->GetHP() << endl;
 			}
 		}
 }
@@ -126,73 +126,73 @@ int main() {
 	Inventory playerInventory;
 	string nickname = "";
 	GameManager* GM = new GameManager;
-	cout << "´Ğ³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+	cout << "ë‹‰ë„¤ì„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
 	while (true)
 	{
 		cin >> nickname;
 		if (nickname == "") {
-			cout << "ÀÔ·ÂÀ» ÇÏÁö ¾Ê¾Ò½À´Ï´Ù. ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+			cout << "ì…ë ¥ì„ í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ì…ë ¥í•´ì£¼ì„¸ìš”: ";
 			nickname = "";
 		}
 		else break;
 	}
 	Character* player = Character::GetInstance(nickname);
-	cout << "È¯¿µÇÕ´Ï´Ù " << player->GetName() << "´Ô!" << endl;
-	cout << "±âº» ¼ÒÁö±İ Áö±Ş(15G)" << endl;
+	cout << "í™˜ì˜í•©ë‹ˆë‹¤ " << player->GetName() << "ë‹˜!" << endl;
+	cout << "ê¸°ë³¸ ì†Œì§€ê¸ˆ ì§€ê¸‰(15G)" << endl;
 	while (true) {
-		system("cls"); ////   ¼öÁ¤ÇÑ ºÎºĞ    ////
-		Image images;     ////    ¼öÁ¤2    ////
+		system("cls"); ////   ìˆ˜ì •í•œ ë¶€ë¶„    ////
+		Image images;     ////    ìˆ˜ì •2    ////
 
-		images.ShowImage("Á¦¸ñ");     ////    ¼öÁ¤2    ////
+		images.ShowImage("ì œëª©");     ////    ìˆ˜ì •2    ////
 		string SNUM = GM->PlayerAction();
 			if (SNUM == "1") {
-				system("cls"); ////   ¼öÁ¤ÇÑ ºÎºĞ    ////
+				system("cls"); ////   ìˆ˜ì •í•œ ë¶€ë¶„    ////
 				player->DisplayStatus();
 				//cout << player->GetExperience() << endl;
-				//½ºÅ×ÀÌÅÍ½º
-				system("pause"); ////   ¼öÁ¤ÇÑ ºÎºĞ    ////
+				//ìŠ¤í…Œì´í„°ìŠ¤
+				system("pause"); ////   ìˆ˜ì •í•œ ë¶€ë¶„    ////
 			}
-			else if (SNUM == "2") {//¾ÆÀÌÅÛ »ç¿ë
-				system("cls"); ////   ¼öÁ¤ÇÑ ºÎºĞ    ////
-				images.ShowImage("°¡¹æ");     ////   ¼öÁ¤4    ////
+			else if (SNUM == "2") {//ì•„ì´í…œ ì‚¬ìš©
+				system("cls"); ////   ìˆ˜ì •í•œ ë¶€ë¶„    ////
+				images.ShowImage("ê°€ë°©");     ////   ìˆ˜ì •4    ////
 				int actionNUM;
 				cout << "\n"
 					<< "======================================\n"
-					<< "ÀÎº¥Åä¸®\n"
+					<< "ì¸ë²¤í† ë¦¬\n"
 					<< "--------------------------------------" << endl;
 
-				int noItem = playerInventory.DisplayItems(); ////   ¼öÁ¤3    ////
+				int noItem = playerInventory.DisplayItems(); ////   ìˆ˜ì •3    ////
 
 				cout << "======================================" << endl;
-				if (noItem == 1) ////   ¼öÁ¤3    ////
+				if (noItem == 1) ////   ìˆ˜ì •3    ////
 				{
 					system("pause");
 				}
 				else
 				{
-					cout << "¾ÆÀÌÅÛÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+					cout << "ì•„ì´í…œì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
 					cin >> actionNUM;
 					playerInventory.UseItem(actionNUM, player);
 
 					cout << "======================================" << endl;
-					system("pause"); ////   ¼öÁ¤ÇÑ ºÎºĞ    ////
+					system("pause"); ////   ìˆ˜ì •í•œ ë¶€ë¶„    ////
 				}
 			}
 			else if (SNUM == "3") {
-				GM->VisitShop(player, &playerInventory);//»óÁ¡
+				GM->VisitShop(player, &playerInventory);//ìƒì 
 			}
 			else if (SNUM == "4") {
-				system("cls"); ////   ¼öÁ¤ÇÑ ºÎºĞ    ////
-				GM->Battle(player);//ÀüÅõ½ÃÀÛ
+				system("cls"); ////   ìˆ˜ì •í•œ ë¶€ë¶„    ////
+				GM->Battle(player);//ì „íˆ¬ì‹œì‘
 				if (player->IsDead() == 1) return 0;
-				system("pause"); ////   ¼öÁ¤ÇÑ ºÎºĞ    ////
+				system("pause"); ////   ìˆ˜ì •í•œ ë¶€ë¶„    ////
 			}
 			else if (SNUM == "5") {
-				cout << "ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù" << endl;
+				cout << "í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤" << endl;
 			}
-			else cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" << endl;
+			else cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" << endl;
 			if (player->GetLevel() == 10) {
-				cout << "·¹º§ 10À» ´Ş¼ºÇÏ¼Ì½À´Ï´Ù. ½Â¸®!";
+				cout << "ë ˆë²¨ 10ì„ ë‹¬ì„±í•˜ì…¨ìŠµë‹ˆë‹¤. ìŠ¹ë¦¬!";
 				return 0;
 			}
 	}
